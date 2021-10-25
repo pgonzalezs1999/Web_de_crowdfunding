@@ -6,30 +6,47 @@
 body
 {
     margin: 0px;
+    padding: 0px;
 }
 
 .banner
 {
-    background-image: image('images/index-banner.jpg');
-    height: 500px;
-    background-repeat: repeat;
+    width: 100%;
 }
 
-.botones
+.proyectos
 {
     text-align: center;
+    display: flex;
 }
 
-.botones button
+.proyecto
 {
+    flex: 1; 
+    margin-left: 1%;
+    margin-left: 1%;
+}
+
+.proyecto button
+{
+    text-decoration: none;
+    color: black;
     background-color: var(--nuestroColor);
-    width: 15%;
-    margin-left: 1%;
-    margin-left: 1%;
+    text-decoration: none;
+    width: 75%;
+    height: 5vh;
+}
+
+.proyecto a
+{
+    text-decoration: none;
+    color: black;
 }
 
 footer
 {
+    margin-top: 3%;
     background-color: var(--nuestroColor);
     text-align: center;
+    padding: 1%;
 }
