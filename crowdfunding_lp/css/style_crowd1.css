@@ -1,5 +1,64 @@
 /* el codigo de color de la página va a ser en rgb 140, 230, 190*/
 :root{
-    --nuestroColor: rgb(140, 230, 190);
+    --nuestroColor: #a5d3ae;
+    --blanco: #D6D2C4;
+}
+html{
+    background-color: var(--blanco);
 }
 
+.grid-container{
+    display: grid;   
+    width: 80%;
+    margin: 0 auto;
+}
+h1{
+    color:var(--blanco);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-left: 20%;
+    text-transform: uppercase;
+}
+
+p{
+    color: rgb(49,48,48);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+h2{
+    color: rgb(26, 153, 26);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.LaPalma{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#images{
+    border: 2px solid white;
+    position: relative;
+    margin-left: 60%;
+    top:50vh;
+    width: 46.1%;
+    height: 97.6%;
+
+}
+
+  #banner #subtitulo {
+      border: 2px solid white;
+      position: relative;
+      margin-top: 10%;
+      width: 400px;
+      height: 100px;
+      margin: 0 auto;
+      padding: 50px;
+      color: white;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif,cursive;
+      font-size: 40px;
+      font-weight: bold;
+      text-align: center;
+      background-color: rgb(42, 27, 27);
+      opacity: 90%;
+  }
+      
