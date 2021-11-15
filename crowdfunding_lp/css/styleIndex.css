@@ -23,6 +23,32 @@ h2
     font-weight: normal;
 }
 
+.navPrincipal
+{
+    background-color: var(--nuestroColor);
+}
+
+.navPrincipal li
+{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 20%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    list-style: none;
+}
+
+.navPrincipal li:hover
+{
+    background-color: white;
+}
+
+.ratonMano
+{
+    cursor: pointer;
+}
+
 .banner
 {
     height: 50vh;
@@ -34,17 +60,13 @@ h2
 {
     text-align: center;
     display: flex;
-    margin-left: 2vw;
-    margin-right: 2vw;
-    margin-top: 3vh;
-    margin-left: 3vh;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .proyecto
 {
     flex: 1;
-    margin-left: 1%;
-    margin-left: 1%;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     padding-bottom: 3vh;
     padding-top: 3vh;
@@ -52,6 +74,10 @@ h2
     padding-right: 3vw;
     margin-left: 2vw;
     margin-right: 2vw;
+    min-width: 250px;
+    max-width: 250px;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
 }
 
 .proyecto img
@@ -77,9 +103,48 @@ h2
     color: black;
 }
 
+.comentarios
+{
+    background-color: #efefef;
+    margin-top: 1vh;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5vw;
+    padding-right: 5vw;
+}
+
+.comentario
+{
+    display: flex;
+    border: #d7d7d7;
+    border-style: solid;
+    border-width: 1px;
+    background-color: white;
+    margin-bottom: 10px;
+}
+
+.columna_foto
+{
+    flex: 1;
+}
+
+.foto_comentador
+{
+    width: 100%;
+   padding-left: 1vw;
+   padding-top: 1vw;
+   border-radius: 100%;
+}
+
+.columna_comentario
+{
+    padding-left: 3vw;
+    flex: 8;
+}
+
 footer
 {
-    margin-top: 3%;
+    margin: 0px;
     background-color: var(--nuestroColor);
     text-align: center;
     padding: 1%;
@@ -101,6 +166,6 @@ footer a
 
 .regreso:hover
 {
-    background-color: aqua;
+    background-color: white;
     border-width: 1px;
 }
