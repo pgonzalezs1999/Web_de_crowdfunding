@@ -3,14 +3,27 @@
     --nuestroColor: #a5d3ae;
     --blanco: #D6D2C4;
 }
-html{
-    background-color: var(--blanco);
-}
-
-.grid-container{
-    display: grid;   
+.informacion_principal{
+    display: flex;
     width: 80%;
     margin: 0 auto;
+    background-color: white;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.columnas_informacion{
+    flex:1;
+}
+
+.imagenes_secundarias{
+    display:flex;
+
+}
+
+.imagenes_desasatre{
+    flex:1;
+    width: 30vw;
+    height: auto;
 }
 h1{
     color:var(--blanco);
@@ -29,7 +42,7 @@ h2{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-.LaPalma{
+/*.LaPalma{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -43,7 +56,7 @@ h2{
     width: 46.1%;
     height: 97.6%;
 
-}
+}*/
 
   #banner #subtitulo {
       border: 2px solid white;
