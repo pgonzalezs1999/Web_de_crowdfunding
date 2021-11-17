@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Crowdfundings Leticia y Pablo</title>
-  <link rel="stylesheet" href="css/styleIndex.css">
+    <title>Crowdfundings Leticia y Pablo</title>
+    <link rel="stylesheet" href="css/styleIndex.css">
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <link href='https://css.gg/chevron-up.css' rel='stylesheet'>
 </head>
 <header>
     <h1>Crowdfundings González-Gruñeiro</h1>
     <h2>Somos dos alumnos de la Universidad Europea de Madrid. Nuestro objetivo es concienciar a la población de problemas en el mundo y, mediante recaudación colectiva, conseguir los fondos suficientes para aportarles solución</h2>
+    <nav class="navPrincipal">
+        <ul>
+            <li class="ratonMano"><a onclick="bajarFooter()">Contacto</a></li>
+        </ul>
+    </nav>
 </header>
 <body>
     <img src="images/index-banner-ligero.jpg" class="banner">
@@ -14,7 +21,7 @@
         <div class="proyecto">
             <img src="images/image1.jpg">
             <p>Hace unas semanas el volcán de La Palma de Gran Canaria entró en erupción, dejando sin hogar a decenas de familias</p>
-            <button href="crowd1.html" target="blank"><a>Volcán de La Palma</a></button>
+            <button><a href="crowd1.html" target="blank">Volcán de La Palma</a></button>
         </div>
         <div class="proyecto">
             <img src="images/image2.jpg">
@@ -26,11 +33,34 @@
             <p>Aquí una breve descripción del proyecto 3, para animar a la gente a que se interese por el proyecto y pulse el botón</p>
             <button><a href="crowd3.html" target="blank">Crowdfunding 3</a></button>
         </div>
-    </div> 
+    </div>
+    <section class="comentarios">
+        <h3>Comentarios de nuestros visitantes:</h3>
+        <div class="comentario">
+            <div class="columna_foto">
+                <img class="foto_comentador" src="images/default-profile.jpg">
+            </div>
+            <div class="columna_comentario">
+                <p>Nombre del comentador 1</p>
+                <p>Texto del comentario 1</p>
+            </div>
+        </div>
+        <div class="comentario">
+            <div class="columna_foto">
+                <img class="foto_comentador" src="images/default-profile.jpg">
+            </div>
+            <div class="columna_comentario">
+                <p>Nombre del comentador 1</p>
+                <p>Texto del comentario 1</p>
+            </div>
+        </div>
+    </section>
 </body>
-<footer>
+<footer id="footer">
     <p>Trabajo realizado por:</p>
-    <p>Pablo González</p>
-    <p>Leticia Gruñeiro</p>
+    <p>Pablo González - Github: <a href="https://github.com/pgonzalezs1999">pgonzalezs1999</a></p>
+    <p>Leticia Gruñeiro - Github: <a href="https://github.com/lgruneirodem">lgruneirodem</a></p>
+    <button class="regreso ratonMano"><i class="gg-chevron-up" onclick="regresar()"></i></button>
 </footer>
+<script src="js/principal.js"></script>
 </html>
