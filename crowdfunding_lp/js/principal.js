@@ -1,5 +1,5 @@
 let altura; // Guardar altura actual de la pantalla
-let suavizado = 96; // Entre 1-99, cuando mas alto mas smooth
+let suavizado = 96; // Entre 1-99.999999, cuando mas alto mas smooth
 
 function regresar() // La funcion onClick del boton regresar
 {
@@ -17,9 +17,4 @@ function subirPantalla() // Función recursiva que sube la pantalla gradualmente
 
         setTimeout(function() { subirPantalla(); }, 5); // Esperar unos milisegundos para que se siente como una transicion
     }
-}
-
-function bajarFooter()
-{
-    window.scrollTo(0,document.body.scrollHeight);
 }

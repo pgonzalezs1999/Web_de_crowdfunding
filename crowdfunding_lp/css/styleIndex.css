@@ -1,7 +1,6 @@
 :root
 {
     --nuestroColor: rgb(140, 230, 190);
-    --otroColor: #929090;
 }
 
 body
@@ -27,22 +26,30 @@ h2
 .navPrincipal
 {
     background-color: var(--nuestroColor);
+    text-align: center;
+}
+
+.navPrincipal ul
+{   
+    margin: 0;
+    padding: 0;
 }
 
 .navPrincipal li
 {
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    width: 20%;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    list-style: none;
+    display: inline;
+}
+
+.navPrincipal a
+{
+    padding: 20vh 3vw;
+    color: black;
+    text-decoration: none;
 }
 
 .navPrincipal li:hover
 {
-    background-color: white;
+    background-color: #def1f8;
 }
 
 .ratonMano
@@ -52,7 +59,7 @@ h2
 
 .banner
 {
-    height: 50vh;
+    height: 400px;
     width: 100%;
     object-fit: cover;
 }
@@ -78,12 +85,12 @@ h2
     min-width: 250px;
     max-width: 250px;
     margin-top: 1vh;
-    margin-bottom: 1vh;
+    margin-bottom: 1.5vh;
 }
 
 .proyecto img
 {
-    height: 20vh;
+    height: 150px;
     width: 100%;
     object-fit: cover;
 }
@@ -95,7 +102,7 @@ h2
     background-color: var(--nuestroColor);
     text-decoration: none;
     width: 75%;
-    height: 5vh;
+    height: 35px;
 }
 
 .proyecto a
@@ -117,7 +124,7 @@ h2
 .comentario
 {
     display: flex;
-    border: #d7d7d7;
+    border: #e6e6e6;
     border-style: solid;
     border-width: 1px;
     background-color: white;
@@ -131,16 +138,41 @@ h2
 
 .foto_comentador
 {
-    width: 100%;
-   padding-left: 1vw;
-   padding-top: 1vw;
-   border-radius: 100%;
+    width: 80px;
+    padding-left: 1vw;
+    padding-top: 1vw;
+    border-radius: 100%;
 }
 
 .columna_comentario
 {
     padding-left: 3vw;
     flex: 8;
+}
+
+.login
+{
+    display: flex;
+    background-color: #efefef;
+    padding-bottom: 30px;
+    padding-left: 5vw;
+    padding-right: 5vw;
+}
+
+.columnaLogin
+{
+    flex: 1;
+    text-align: center;
+}
+
+.botonForm
+{
+    text-decoration: none;
+    color: black;
+    background-color: var(--nuestroColor);
+    text-decoration: none;
+    width: 25%;
+    height: 30px;
 }
 
 footer

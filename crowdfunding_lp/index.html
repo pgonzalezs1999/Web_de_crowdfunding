@@ -11,12 +11,13 @@
     <h2>Somos dos alumnos de la Universidad Europea de Madrid. Nuestro objetivo es concienciar a la población de problemas en el mundo y, mediante recaudación colectiva, conseguir los fondos suficientes para aportarles solución</h2>
     <nav class="navPrincipal">
         <ul>
-            <li class="ratonMano"><a onclick="bajarFooter()">Contacto</a></li>
+            <li class="ratonMano"><a href="#login">Iniciar sesión</a></li>
+            <li class="ratonMano"><a href="#footer"">Contacto</a></li>
         </ul>
     </nav>
 </header>
 <body>
-    <img src="images/index-banner-ligero.jpg" class="banner">
+    <img src="images/index-banner.jpg" class="banner">
     <div class="proyectos">
         <div class="proyecto">
             <img src="images/image1.jpg">
@@ -50,9 +51,67 @@
                 <img class="foto_comentador" src="images/default-profile.jpg">
             </div>
             <div class="columna_comentario">
-                <p>Nombre del comentador 1</p>
-                <p>Texto del comentario 1</p>
+                <p>Nombre del comentador 2</p>
+                <p>Texto del comentario 2</p>
             </div>
+        </div>
+        <div class="comentario">
+            <div class="columna_foto">
+                <img class="foto_comentador" src="images/default-profile.jpg">
+            </div>
+            <div class="columna_comentario">
+                <p>Nombre del comentador 3</p>
+                <p>Texto del comentario 3</p>
+            </div>
+        </div>
+        <div class="comentario">
+            <div class="columna_foto">
+                <img class="foto_comentador" src="images/default-profile.jpg">
+            </div>
+            <div class="columna_comentario">
+                <p>Nombre del comentador 4</p>
+                <p>Texto del comentario 4</p>
+            </div>
+        </div>
+        <div class="comentario">
+            <div class="columna_foto">
+                <img class="foto_comentador" src="images/default-profile.jpg">
+            </div>
+            <div class="columna_comentario">
+                <p>Nombre del comentador 5</p>
+                <p>Texto del comentario 5</p>
+            </div>
+        </div>
+        <div class="comentario">
+            <div class="columna_foto">
+                <img class="foto_comentador" src="images/default-profile.jpg">
+            </div>
+            <div class="columna_comentario">
+                <p>Nombre del comentador 6</p>
+                <p>Texto del comentario 6</p>
+            </div>
+        </div>
+    </section>
+    <section class="login" id="login">
+        <div class="columnaLogin">
+            <h3>Inicia sesión para añadir un comentario</h3>
+            <form action="bienvenida.php" method="post">
+                Usuario: <input type="text" name="nombre"/>
+                <br><br>
+                Contraseña: <input type="text" name="contrasena"/>
+                <br><br>
+                <input class="botonForm" type="submit" value="Enviar"/>
+            </form>
+        </div>
+        <div class="columnaLogin">
+            <h3>¿No tienes cuenta? Registrate ahora</h3>
+            <form action="bienvenida.php" method="post">
+                Usuario: <input type="text" name="nombre"/>
+                <br><br>
+                Contraseña: <input type="text" name="contrasena"/>
+                <br><br>
+                <input class="botonForm" type="submit" value="Enviar"/>
+            </form>
         </div>
     </section>
 </body>
