@@ -3,15 +3,28 @@
 <head>
     <meta charset="utf-8">
     <title> Campaña de recaudación para La Palma</title>
-    <link rel="stylesheet" href="css/style_crowd1.css">
     <meta name="viewport" content="width=device-width", initial-scale="1.0">
-
+    <link rel="stylesheet" href="css/style_crowd1.css">
 </head>
 <body>
-    <div class="banner">
-        <h1> Campaña de recaudación de fondos para La Palma </h1>
-        <button class="boton"><a href="index.html" target="blank">Página Principal</a></button>
-    </div>
+    <header>
+        <div class="texto_header">
+            <h1> Campaña de recaudación de fondos para La Palma </h1>
+            <h2> Después de este de la explosión, quisimos aportar nuestro pequeño grano de arena para porder ayudar a la gente que se ha quedado sin casa. </h2>
+        </div>
+        <div class="logo">
+            <img src="images/pl_founding.JPG" alt="logo">
+        </div>
+    </header> 
+        <nav class="navPrincipal">
+            <ul>
+                <li class="ratonMano"><a href="index.html">Página Principal</a></li>
+                <li class="ratonMano"><a href="#login">Iniciar sesión</a></li>
+                <li class="ratonMano"><a href="#Contacto">Contacto</a></li>
+                <li class="ratonMano"><a href="#quienesSomos">Quienes Somos</a></li>
+            </ul>
+        </nav>
+    
 
     <div class="informacion_principal">
 
@@ -26,7 +39,11 @@
             <p> Tras la impresionante erupción del volcán ubicado en la isla de La Palma, muchos habitantes se han visto obligados a dejar su casa debido a que la lava iba en direccción de sus respectivas casasa. 
                 Por esto, hemos visto como una necesidad humana hacer una recaudación de fondos a tráves de un crowfounding para ayudar a estos ciudadanos.
             </p>
-            
+
+            <div class="botones">
+                <button class="button" id="button_donar">Donar</button>
+                <button class="button" id="button_compar" >Compartir</button>
+            </div>
         </div>
     </div>
 
@@ -56,10 +73,10 @@
 
 </body>
 
-<footer>
+<footer id="Contacto">
     <p>Trabajo realizado por: </p>
-    <p>Pablo Gonzalez</p>
-    <p>Leticia Gruñeiro</p>
+    <p>Pablo González - Github: <a href="https://github.com/pgonzalezs1999">pgonzalezs1999</a></p>
+    <p>Leticia Gruñeiro - Github: <a href="https://github.com/lgruneirodem">lgruneirodem</a></p>
 </footer>
 
 </html>
