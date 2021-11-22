@@ -8,10 +8,15 @@ body{
     padding: 0px;
 }
 /*cambios del header */
-header{
-    margin-bottom: 5vh;
+.container-head{
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
+}
+header{
+    margin-bottom: 5vh;
+    
+    
 
 }
 .logo{
@@ -22,7 +27,10 @@ header{
 }
 
 .texto_header{
-    flex:2;
+    flex:4;
+    padding-right: 25vw;
+    align-items: center;
+    text-align: center;
 }
 
 
@@ -31,7 +39,7 @@ header{
 {
     background-color: var(--nuestroColor);
     text-align: center;
-    height: 2.5vh;
+    height: 2vh;
 }
 
 .navPrincipal ul
@@ -64,6 +72,7 @@ header{
 
 /* elementos donde se explicar de que va el 
  crowfounding.*/
+
 .informacion_principal{
     display: flex;
     justify-content: center;
@@ -85,6 +94,33 @@ header{
     height: 100%;    
     width: 100%;
 }
+
+/*Layout de los botones de donación*/
+.botones{
+    display: flex;
+}
+.button{
+    flex:1;
+    text-decoration: none;
+    width: 5vw;
+    height: 4vh;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 16px;
+    color:white;
+    background-color: var(--nuestroColor);
+    border-radius: 6px;
+    border: 2px solid #215f4a;
+}
+#button_donar{
+   margin-right: 2vw;
+}
+
+.button:hover{
+    color: var(--nuestroColor);
+    background-color: #ffffff;
+}
+
 
 /* Imagenes de la parte inferior de la web*/
 .imagenes_secundarias{
@@ -119,43 +155,65 @@ footer{
     text-align: center;
     padding: 1%;
 }
-/*Layout de los botones*/
-.botones{
+/* Layout de los comentarios*/
+
+.comments-container{
     display: flex;
-}
-.button{
-    flex:1;
-    text-decoration: none;
-    width: 5vw;
-    height: 4vh;
-    padding: 10px;
-    font-weight: 600;
-    font-size: 16px;
-    color:white;
-    background-color: var(--nuestroColor);
-    border-radius: 6px;
-    border: 2px solid #215f4a;
-}
-#button_donar{
-   margin-right: 2vw;
+    flex-direction: column;
+    background-color: #efefef;
+    width: 105%;
+    height: 15%;
+    margin-top: 3%;
+    padding-top: 2%;
+    padding-bottom: 10px;
+    padding-left: 5vw;
+    padding-right: 5vw;
+
 }
 
-.button:hover{
-    color: var(--nuestroColor);
-    background-color: #ffffff;
+.comentario{
+    width: 80%;
+    height: 20vh;
+    margin-left:5vw;
+    background-color: white;
+    border-style: solid;
+    border-color: #efefef;
+    border-width: 1px;
+    background-color: white;
+    margin-bottom: 10px;
+
 }
+
+.comentario_foto{
+    flex:1;
+
+}
+
+.foto_usuario{
+    width: 80px;
+    padding-left: 1vw;
+    padding-top: 1vw;
+    border-radius: 90%;
+}
+
+.texto_comentario{
+    padding-left: 3vw;
+    flex:8;
+}
+
 
 /* Layout de los tipos de titulos y párrafos.*/
 
 h1{
     text-align: center;
     margin: auto;
-    font-size: 36px;
+    font-size: 45px;
 }
 h2{
     width: 55%;
     margin: auto;
-    font-size: 18px;
+    text-align: center;
+    font-size: 20px;
     font-weight: normal;
 }
 h3{
