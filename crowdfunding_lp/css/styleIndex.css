@@ -18,8 +18,7 @@ h1, h2
 
 h2
 {
-    width: 55%;
-    font-size: 18px;
+    width: 75%; 
     font-weight: normal;
 }
 
@@ -27,28 +26,36 @@ h2
 {
     background-color: var(--nuestroColor);
     text-align: center;
+    padding: 0%;
+    margin: 0%;
 }
 
 .navPrincipal ul
 {   
-    margin: 0;
-    padding: 0;
+    margin: 0%;
+    padding: 0%;
 }
 
-.navPrincipal li
+.navPrincipal ul li
 {
     display: inline;
+    margin: 0%;
+    padding: 0%;
+    height: 100%;
 }
 
-.navPrincipal a
+.navPrincipal ul li a
 {
     padding: 3vw;
     color: black;
     text-decoration: none;
+    height: 100%;
 }
 
-.navPrincipal li:hover
-{
+.navPrincipal ul li:hover
+{    
+    margin: 0%;
+    padding: 0%;
     background-color: #def1f8;
 }
 
@@ -111,11 +118,18 @@ h2
     color: black;
 }
 
-.comentarios
+.bloqueComentarios
 {
+    display: flex;
     background-color: #efefef;
     margin-top: 1vh;
     padding-top: 10px;
+    padding-left: 4vw;
+}
+
+.comentarios
+{
+    width: 80%;
     padding-bottom: 10px;
     padding-left: 5vw;
     padding-right: 5vw;
@@ -129,6 +143,7 @@ h2
     border-width: 1px;
     background-color: white;
     margin-bottom: 10px;
+    padding-right: 30px;
 }
 
 .columna_foto
@@ -152,17 +167,12 @@ h2
 
 .login
 {
-    display: flex;
-    background-color: #efefef;
-    padding-bottom: 30px;
-    padding-left: 5vw;
-    padding-right: 5vw;
+    width: 200px;
 }
 
-.columnaLogin
+.inputForm
 {
-    flex: 1;
-    text-align: center;
+    width: 100%;
 }
 
 .botonForm
@@ -171,7 +181,7 @@ h2
     color: black;
     background-color: var(--nuestroColor);
     text-decoration: none;
-    width: 25%;
+    width: 40%;
     height: 30px;
 }
 
@@ -201,4 +211,54 @@ footer a
 {
     background-color: white;
     border-width: 1px;
+}
+
+@media only screen and (max-width: 640px)
+{
+    h2
+    {
+        width: 90%;
+        font-weight: normal;
+    }
+
+    .proyecto
+    {
+        max-width: 300px;
+    }
+
+    .bloqueComentarios
+    {
+        display: block;
+        background-color: #efefef;
+        margin-top: 1vh;
+        padding-top: 10px;
+        padding-left: 4vw;
+        margin: 0%;
+    }
+
+    .login
+    {
+        width: 100%;
+        text-align: center;
+    }
+
+    .comentarios
+    {
+        width: 95%;
+        padding: 0%;
+        padding-bottom: 10px;
+    }
+
+    .comentario
+    {
+        width: 95%;
+        padding-right: 25px;
+        padding-left: 10px;
+        padding-top: 10px;
+    }
+
+    .inputForm
+    {
+        width: 50%;
+    }
 }
