@@ -227,6 +227,41 @@ footer{
     padding-bottom: 1vh;
     flex:8;
 }
+/*Layout de login*/
+.textoContacto{
+    margin-top: 10vh;
+}
+.login{
+    display: flex;
+    width: 100%;
+    height: 20vh;
+    background-color: var(--nuestroColor);
+    margin-bottom: 2vh;
+}
+
+.inicio{
+    flex:3;
+
+}
+
+.registro{
+    flex:3;
+    border-style: solid;
+    border-width: 5vh;
+    border-color: gray;
+}
+
+
+.inputForm{
+    margin-top: 1vh;
+
+}
+
+.botonForm{
+    margin-top:2vh;
+
+
+}
 
 
 /* Layout de los tipos de titulos y párrafos.*/
@@ -244,7 +279,7 @@ h2{
     font-weight: normal;
 }
 h3{
-    color: var(--nuestroColor);
+    /*color: var(--blanco);*/
     text-decoration:bold
 }
 p{

@@ -20,7 +20,7 @@
     </header> 
         <nav class="navPrincipal">
             <ul>
-                <li class="ratonMano" id="login"><a href="#login">Iniciar sesión</a></li>
+                <li class="ratonMano" ><a href="#login">Iniciar sesión</a></li>
                 <li class="ratonMano"><a href="#Contacto">Contacto</a></li>
                 <li class="ratonMano"><a href="#quienesSomos">Quienes Somos</a></li>
             </ul>
@@ -123,9 +123,31 @@
 </body>
 
 <footer id="Contacto">
-    <p>Trabajo realizado por: </p>
-    <p>Pablo González - Github: <a href="https://github.com/pgonzalezs1999">pgonzalezs1999</a></p>
-    <p>Leticia Gruñeiro - Github: <a href="https://github.com/lgruneirodem">lgruneirodem</a></p>
+    <div class="login" id="login">
+        <div class="inicio">
+            <h3> Inicia Sesión </h3>
+            <form action="bienvenida.php" method="post">
+                Email <input class="inputForm" type="email" name ="email"/><br>
+                Contraseña <input class="inputForm" type="password" name="password" /><br>
+                <input class="botonForm" type="submit" value="Iniciar Sesión" /><br>
+            </form>
+        </div>
+        <div class="registro">
+            <h3>Si no tienes cuenta registrate</h3>
+            <form action="bienvenida.php" method="post">
+                nombre y apellidos <input class="inputForm" type="text" name ="nombre y apellidos"/><br>
+                Email <input  class="inputForm" type="email" name="email" /><br>
+                Contraseña <input class="inputForm" type="password" name="contraseña" /><br>
+                Repetir contraseña <input class="inputForm" type="password" name="contraseña" /><br>
+                <input class="botonForm" type="submit"  value="Registrarse"/>
+            </form>
+        </div>
+    </div>
+    <div class="textoContacto">
+        <p>Trabajo realizado por: </p>
+        <p>Pablo González - Github: <a href="https://github.com/pgonzalezs1999">pgonzalezs1999</a></p>
+        <p>Leticia Gruñeiro - Github: <a href="https://github.com/lgruneirodem">lgruneirodem</a></p>
+    </div>
 </footer>
 
 </html>
