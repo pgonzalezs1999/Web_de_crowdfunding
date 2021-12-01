@@ -342,6 +342,23 @@ p{
     }
     .imagenes_desastre{
         width: 80%;
+        padding-left: 5vh;
+    }
+    .informacion_principal{
+        display: block;
+
+    }
+    #texto_informacion{
+        padding: 3%;
+        width: 95%;
+    }
+    .foto_principal{
+        width:100%;
+    }
+    .columnas_informacion{
+
+        width:100%;
+
     }
 
 }
