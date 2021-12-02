@@ -142,6 +142,7 @@ header{
 /*Layout de los botones de donación*/
 .botones{
     display: flex;
+    text-decoration: none;
 }
 .button{
     flex:1;
@@ -154,17 +155,28 @@ header{
     font-weight: 600;
     font-size: 16px;
     color:white;
+    text-decoration:none;
     background-color: var(--nuestroColor);
     border-radius: 6px;
     border: 1px solid #215f4a;
 }
 #button_donar{
    margin-right: 2vw;
+   
 }
+#enlace_donar{
+    color:white;
+    text-decoration:none
+}
+#enlace_donar:hover{
+    color: var(--nuestroColor);
+    background-color: #ffffff;
 
+}
 .button:hover{
     color: var(--nuestroColor);
     background-color: #ffffff;
+    
 }
 
 
