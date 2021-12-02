@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crowdfundings Leticia y Pablo</title>
+    <link rel="stylesheet" href="css/styleDonacion.css">
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <link href='https://css.gg/chevron-up.css' rel='stylesheet'>
+</head>
+<header>
+    <img class="logo" src="images/crow3.JPG" alt="Desastre de la palma">
+    <h1>Realizar donación</h1>
+</header>
+<body>
+    <div class="contenedorFormulario">
+        <h2>Gracias por apoyar [nombre del proyecto]</h2>
+        <div class="columnasFormulario">
+            <div class="columnaFormulario">
+                <h3>Rellena el formulario para completar la ayuda</h3>
+                <form action="bienvenida.php" method="post">
+                Introduce tu nombre de usuario:<br><br><input type="text" name="nombre"/>
+                <br><br>
+                Introduce la cantidad deseas donar:<br><br><input class="inputDinero" type="text" name="contrasena"/>
+                <br><br>
+                <input class="botonForm" type="submit" value="Enviar"/>
+            </form>
+            </div>
+            <div class="lineaVertical"></div>
+            <div class="botonesCantidad">
+                <h3>Elegir una cantidad para donar</h3>
+                <button class="botonCantidad" onclick="anadirDinero(1)">1€</button>
+                <button class="botonCantidad" onclick="anadirDinero(5)">5€</button>
+                <button class="botonCantidad" onclick="anadirDinero(10)">10€</button>
+                <button class="botonCantidad" onclick="anadirDinero(20)">20€</button>
+            </div>
+        </div>
+    </div>
+</body>
+<footer id="footer">
+    <p>Trabajo realizado por:</p>
+    <p>Pablo González - Github: <a href="https://github.com/pgonzalezs1999">pgonzalezs1999</a></p>
+    <p>Leticia Gruñeiro - Github: <a href="https://github.com/lgruneirodem">lgruneirodem</a></p>
+    <button class="regreso ratonMano"><i class="gg-chevron-up" onclick="regresar()"></i></button>
+</footer>
+<script src="js/donacion.js"></script>
+</html>
