@@ -5,6 +5,8 @@
     <title> Campaña de recaudación para La Palma</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"  href="css/style_crowd1.css">
+    <link href='https://css.gg/chevron-up.css' rel='stylesheet'>
+
 </head>
 <body>
     <header>
@@ -41,12 +43,16 @@
                 Por esto, hemos visto como una necesidad humana hacer una recaudación de fondos a tráves de un crowfounding para ayudar a estos ciudadanos.
             </p>
 
+            <p class="recaudacion"> 1200€ recaudados de un objetivo de 5000€</p>
+
             <div class="dinero">
                 <p class="textoPorcentaje">50%</p>
                 <div class="barraProgreso">
                     <div class="porcentaje"></div>
                 </div>
             </div>
+            <P class="personas_apoyo"> 42 personas han apoyado esta causa.</P>
+            
 
             <div class="botones">
                 <button class="button" id="button_donar">Donar</button>
@@ -103,7 +109,7 @@
                     <img class="foto_usuario" src="images/default-profile.jpg">
                 </div>
                 <div class="texto_comentario">
-                    <p>Nombre del usuario 1</p>
+                    <p>Dejanos tu comentario</p>
                     <input type="text" name="comentario">
                     <input type="submit" name="submit">
                 </div>
@@ -115,8 +121,7 @@
                 </div>
                 <div class="texto_comentario">
                     <p>Nombre del usuario 2</p>
-                    <input type="text" name="comentario">
-                    <input type="submit" name="submit">
+                    <p> [Texto del usuario]</p>
                 </div>
             </div>
 
@@ -126,8 +131,7 @@
                 </div>
                 <div class="texto_comentario">
                     <p>Nombre del usuario 3</p>
-                    <input type="text" name="comentario">
-                    <input type="submit" name="submit">
+                    <p> [Texto del usuario]</p>
                 </div>
             </div>
 
@@ -137,8 +141,7 @@
                 </div>
                 <div class="texto_comentario">
                     <p>Nombre del usuario 4</p>
-                    <input type="text" name="comentario">
-                    <input type="submit" name="submit">
+                    <p>[Texto del usuario]</p>
                 </div>   
             </div>
         </section>
@@ -148,12 +151,10 @@
 </body>
 
 <footer id="Contacto">
-
-    <div class="textoContacto">
-        <p>Trabajo realizado por: </p>
-        <p>Pablo González - Github: <a href="https://github.com/pgonzalezs1999">pgonzalezs1999</a></p>
-        <p>Leticia Gruñeiro - Github: <a href="https://github.com/lgruneirodem">lgruneirodem</a></p>
-    </div>
+    <p>Trabajo realizado por: </p>
+    <p>Pablo González - Github: <a href="https://github.com/pgonzalezs1999">pgonzalezs1999</a></p>
+    <p>Leticia Gruñeiro - Github: <a href="https://github.com/lgruneirodem">lgruneirodem</a></p>
+    <button class="regreso ratonMano"><i class="gg-chevron-up" onclick="regresar()"></i></button>
 </footer>
-
+<script src="js/crowd1.js"></script>
 </html>
