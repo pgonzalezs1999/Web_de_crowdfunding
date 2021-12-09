@@ -1,6 +1,7 @@
 :root{
     --nuestroColor: rgb(140, 230, 190);
     --blanco: #D6D2C4;
+    --segundoColor: #def1f8;
 }
 body
 {
@@ -16,7 +17,7 @@ h1, h2, h3, p, li, a, form, button, input
 /*cambios del header */
 header
 {
-    margin-bottom: 5vh;
+    margin-bottom: 3vh;
     text-align: center;
 }
 
@@ -24,6 +25,8 @@ h1
 {
     text-align: center;
     width: 75%;
+    line-height: 120%;
+    padding-bottom: 20px;
 }
 
 .logo
@@ -47,7 +50,7 @@ h1
 }
 
 .navPrincipal ul
-{   
+{
     margin: 0;
     padding: 0;
 }
@@ -59,7 +62,8 @@ h1
 
 .navPrincipal a
 {
-    padding: 20vh 3vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
     color: black;
     text-decoration: none;
 }
@@ -67,6 +71,8 @@ h1
 .navPrincipal li:hover
 {
     background-color: #def1f8;
+    animation-name: navHover;
+    animation-duration: 0.25s;
 }
 
 .ratonMano
@@ -129,10 +135,10 @@ h1
     width: 100%;
     height: 20px;
     margin-top: 1vh;
-    margin-left: 5%;
+    margin-left: 3%;
     margin-bottom: 10SSvh;
     border: 1px solid #000000;
-    background-color: #CCCCCC;
+    background-color: #cccccc;
     border-top-left-radius: 60px;
     border-top-right-radius: 60px;
     border-bottom-right-radius: 60px;
@@ -152,41 +158,33 @@ h1
 .botones
 {
     display: flex;
-    text-decoration: none;
 }
 
-.button{
-    flex:1;
-    text-decoration: none;
-    width: 5vw;
+.button
+{
+    flex: 1;
     height: 4vh;
     margin-top: 2vh;
     margin-bottom: 2vh;
-    padding-bottom: 0,5vh;
     font-weight: 600;
-    font-size: 16px;
-    color:white;
-    text-decoration:none;
+    font-size: 15px;
+    text-decoration: none;
     background-color: var(--nuestroColor);
     border-radius: 6px;
-    border: 1px solid #215f4a;
-}
-
-#enlace_donar{
-    color: white;
-    text-decoration: none;
-    width: 100%;
-}
-#enlace_donar:hover{
-    color: var(--nuestroColor);
-}
-
-.botones button
-{
+    border: 1px solid black;
     margin-left: 2%;
     margin-right: 2%;
     color: white;
+}
+
+#enlace_donar
+{
+    color: white;
     text-decoration: none;
+}
+
+#enlace_donar:hover{
+    color: var(--nuestroColor);
 }
 
 .botones button:hover
@@ -195,6 +193,11 @@ h1
     background-color: #ffffff;
 }
 
+.botones button:hover > #enlace_donar
+{
+    color: var(--nuestroColor);
+    background-color: #ffffff;
+}
 
 /* Imagenes de la parte inferior de la web*/
 .imagenes_secundarias{
@@ -245,28 +248,32 @@ footer{
     padding-top: 2%;
 }
 
-.comentario{
+.comentario
+{
     display: flex;
     border: #e6e6e6;
     border-style: solid;
     border-width: 1px;
     background-color: white;
     margin-bottom: 3vh;
+    border-radius: 10px;
 }
 
-.comentario_foto{
-    flex:1;
-
+.comentario_foto
+{
+    flex: 1;
 }
 
-.foto_usuario{
+.foto_usuario
+{
     width: 80px;
     padding-left: 1vw;
     padding-top: 1vw;
     border-radius: 90%;
 }
 
-.texto_comentario{
+.texto_comentario
+{
     padding-left: 3vw;
     padding-bottom: 1vh;
     flex:8;
@@ -335,7 +342,8 @@ h1{
     margin: auto;
     font-size: 45px;
 }
-h2{
+h2
+{
     width: 55%;
     margin: auto;
     text-align: center;
@@ -352,35 +360,72 @@ p{
     font: size 18px;;
 }
 
-@media only screen and (max-width: 640px){
+@keyframes navHover
+{
+    from
+    {
+        background-color: var(--nuestroColor);
+        border-top-right-radius: 100%;
+        border-top-left-radius: 100%;
+    }
+    to
+    {
+        background-color: var(--segundoColor);
+        border-top-right-radius: 0%;
+        border-top-left-radius: 0%;
+    }
+}
 
-    .comentario_Incio{
+@media only screen and (max-width: 640px)
+{
+    .comentario_Incio
+    {
         display: block;
     }
 
-    .container-login{
+    .container-login
+    {
         width: 100%;
         background-color:#efefef ;
     }
 
-    .comments-container{
+    .comments-container
+    {
         width: 100%;
     }
 
-    .imagenes_secundarias{
+    .imagenes_secundarias
+    {
         display: block;
     }
-    .imagenes_desastre{
+
+    .imagenes_desastre
+    {
         width: 80%;
         padding-left: 5vh;
     }
-    .informacion_principal{
-        display: block;
+}
 
+@media only screen and (max-width: 1020px)
+{
+    .informacion_principal
+    {
+        width: 95%;
     }
-    .foto_principal{
+}
+
+@media only screen and (max-width: 720px)
+{
+    .informacion_principal
+    {
+        display: block;
+    }
+
+    .foto_principal
+    {
         width:100%;
     }
+
     .columnas_informacion
     {
         width:100%;

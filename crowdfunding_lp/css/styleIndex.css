@@ -1,6 +1,7 @@
 :root
 {
     --nuestroColor: rgb(140, 230, 190);
+    --segundoColor: #def1f8;
 }
 
 body
@@ -70,6 +71,8 @@ h2
     margin: 0%;
     padding: 0%;
     background-color: #def1f8;
+    animation-name: navHover;
+    animation-duration: 0.25s;
 }
 
 .ratonMano
@@ -96,6 +99,7 @@ h2
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    padding-bottom: 30px;
 }
 
 .proyecto
@@ -163,6 +167,7 @@ h2
     background-color: white;
     margin-bottom: 10px;
     padding-right: 30px;
+    border-radius: 10px;
 }
 
 .columna_foto
@@ -196,7 +201,6 @@ h2
 
 .botonForm
 {
-    text-decoration: none;
     color: black;
     background-color: var(--nuestroColor);
     text-decoration: none;
@@ -230,6 +234,22 @@ footer a
 {
     background-color: white;
     border-width: 1px;
+}
+
+@keyframes navHover
+{
+    from
+    {
+        background-color: var(--nuestroColor);
+        border-top-right-radius: 100%;
+        border-top-left-radius: 100%;
+    }
+    to
+    {
+        background-color: var(--segundoColor);
+        border-top-right-radius: 0%;
+        border-top-left-radius: 0%;
+    }
 }
 
 @media only screen and (max-width: 640px)
