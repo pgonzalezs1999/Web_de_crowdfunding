@@ -17,6 +17,11 @@ body
     margin-top: 25px;
 }
 
+h1, h2, h3, p, li, a, form, button, input
+{
+    font-family: 'Baloo Bhaijaan 2', cursive;
+}
+
 h1, h2
 {
     text-align: center;
@@ -77,6 +82,12 @@ h2
     height: 400px;
     width: 100%;
     object-fit: cover;
+}
+
+.tituloProyectos
+{
+    text-align: center;
+    font-size: 30px;
 }
 
 .proyectos
