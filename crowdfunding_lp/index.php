@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- http://localhost/Pablo/crowdfunding_lp/crowdfunding_lp/index.php -->
     <meta charset="utf-8">
     <link rel="icon" href="images/icono.jpg">
     <meta proprty="twitter:card" content="summary">
@@ -25,6 +26,14 @@
     </nav>
 </header>
 <body>
+    <?php
+        $comentarios = fopen("database/comentarios.csv", "r") or exit("No se pudo abrir el archivo");
+        while(!feof($comentarios))
+        {
+            echo "-> ".fgets($comentarios)."<br/>";
+        }
+        fclose($comentarios);
+    ?>
     <img src="images/index-banner.jpg" class="banner">
     <h3 class="tituloProyectos">Causas en las que colaboramos</h3>
     <div class="proyectos">
