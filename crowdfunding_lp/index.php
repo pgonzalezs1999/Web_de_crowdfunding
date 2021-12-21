@@ -46,36 +46,20 @@
         </div>
     </div>
     <div class="bloqueComentarios">
-        <section class="login" id="login">
-            <h3>Inicia sesión para añadir un comentario</h3>
-            <form action="bienvenida.php" method="post">
-                Usuario: <br><input class="inputForm" type="text" name="nombre"/>
-                <br>
-                Contraseña: <br><input class="inputForm" type="text" name="contrasena"/>
-                <br><br>
-                <input class="botonForm" type="submit" value="Enviar"/>
-            </form>
-            <br><br>
-            <h3>¿No tienes cuenta? Registrate ahora</h3>
-            <form action="bienvenida.php" method="post">
-                Usuario: <br><input class="inputForm" type="text" name="nombre"/>
-                <br>
-                Contraseña: <br><input class="inputForm" type="text" name="contrasena"/>
-                <br><br>
-                <input class="botonForm" type="submit" value="Enviar"/>
-            </form>
-        </section>
         <section class="comentarios">
-            <h3>Comentarios de nuestros visitantes:</h3>
+            <h3>Comentarios de nuestros usuarios:</h3>
             <?php
-                if (($comentarios = fopen("database/comentarios.csv", "r")) !== FALSE)
+                $comentarios = fopen("database/comentarios.csv", "r");
+                if ($comentarios !== FALSE)
                 {
                     $numLinea = 1;
-                    while (($arrayLinea = fgetcsv($comentarios, 1000, ",")) !== FALSE)
+                    while (($arrayLinea = fgetcsv($comentarios, 1000, ",")) !== FALSE and $numLinea <= 10)
                     {
                         echo "<div class=\"comentario\">
                                 <div class=\"columna_foto\">
-                                    <img class=\"foto_comentador\" src=\"images/default-profile.jpg\">
+                                    <div>
+                                        <img class=\"foto_comentador\" src=\"images/default-profile.jpg\">
+                                    </div>
                                 </div>
                                 <div class=\"columna_comentario\">
                                     <p><strong>@".$arrayLinea[0]."</strong>, sobre ".$arrayLinea[1]."</p>
@@ -87,6 +71,24 @@
                     fclose($comentarios);
                 }
             ?>
+        </section>
+        <section class="login" id="login">
+            <h3>Inicia sesión para añadir un comentario</h3>
+            <form action="bienvenida.php" method="post">
+                Usuario: <br><input class="inputForm" type="text" name="nombre"/>
+                <br>
+                Contraseña: <br><input class="inputForm" type="text" name="contrasena"/>
+                <br><br>
+                <input class="botonForm" type="submit" value="Enviar"/>
+            </form>
+            <h3>¿No tienes cuenta? Registrate ahora</h3>
+            <form action="bienvenida.php" method="post">
+                Usuario: <br><input class="inputForm" type="text" name="nombre"/>
+                <br>
+                Contraseña: <br><input class="inputForm" type="text" name="contrasena"/>
+                <br><br>
+                <input class="botonForm" type="submit" value="Enviar"/>
+            </form>
         </section>
     </div>
 </body>
