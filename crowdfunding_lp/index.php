@@ -78,7 +78,7 @@
                                     <img class=\"foto_comentador\" src=\"images/default-profile.jpg\">
                                 </div>
                                 <div class=\"columna_comentario\">
-                                    <p>@".$arrayLinea[0].", sobre ".$arrayLinea[1]."</p>
+                                    <p><strong>@".$arrayLinea[0]."</strong>, sobre ".$arrayLinea[1]."</p>
                                     <p>".$arrayLinea[2]."</p>
                                 </div>
                               </div>";
