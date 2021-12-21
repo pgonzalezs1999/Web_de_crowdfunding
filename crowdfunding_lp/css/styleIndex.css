@@ -1,6 +1,6 @@
 :root
 {
-    --nuestroColor: rgb(140, 230, 190);
+    --nuestroColor: rgb(140, 230, 255);
     --segundoColor: #def1f8;
 }
 
@@ -179,7 +179,7 @@ h2
 {
     width: 80px;
     padding-left: 1vw;
-    padding-top: 1vw;
+    padding-top: 10vw;
     border-radius: 100%;
 }
 
