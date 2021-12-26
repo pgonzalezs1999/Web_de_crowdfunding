@@ -34,6 +34,7 @@ h2
 {
     width: 75%; 
     font-weight: normal;
+    line-height: 130%;
 }
 
 .navPrincipal
@@ -144,6 +145,7 @@ h2
 .bloqueComentarios
 {
     display: flex;
+    flex-flow: row-reverse;
     background-color: #efefef;
     margin-top: 1vh;
     padding-top: 10px;
@@ -168,6 +170,7 @@ h2
     margin-bottom: 10px;
     padding-right: 30px;
     border-radius: 10px;
+    line-height: 120%;
 }
 
 .columna_foto
@@ -177,16 +180,14 @@ h2
 
 .foto_comentador
 {
-    width: 80px;
-    padding-left: 1vw;
-    padding-top: 1vw;
+    width: 60px;
+    margin: 20px;
     border-radius: 100%;
 }
 
 .columna_comentario
 {
-    padding-left: 3vw;
-    flex: 8;
+    flex: 10;
 }
 
 .login
@@ -206,6 +207,7 @@ h2
     text-decoration: none;
     width: 40%;
     height: 30px;
+    margin-bottom: 25px;
 }
 
 footer
@@ -273,6 +275,7 @@ footer a
         padding-top: 10px;
         padding-left: 4vw;
         margin: 0%;
+        padding-bottom: 25px;
     }
 
     .login

@@ -26,14 +26,6 @@
     </nav>
 </header>
 <body>
-    <?php
-        $comentarios = fopen("database/comentarios.csv", "r") or exit("No se pudo abrir el archivo");
-        while(!feof($comentarios))
-        {
-            echo "-> ".fgets($comentarios)."<br/>";
-        }
-        fclose($comentarios);
-    ?>
     <img src="images/index-banner.jpg" class="banner">
     <h3 class="tituloProyectos">Causas en las que colaboramos</h3>
     <div class="proyectos">
@@ -54,6 +46,32 @@
         </div>
     </div>
     <div class="bloqueComentarios">
+        <section class="comentarios">
+            <h3>Comentarios de nuestros usuarios:</h3>
+            <?php
+                $comentarios = fopen("database/comentarios.csv", "r");
+                if ($comentarios !== FALSE)
+                {
+                    $numLinea = 1;
+                    while (($arrayLinea = fgetcsv($comentarios, 1000, ",")) !== FALSE and $numLinea <= 10)
+                    {
+                        echo "<div class=\"comentario\">
+                                <div class=\"columna_foto\">
+                                    <div>
+                                        <img class=\"foto_comentador\" src=\"images/default-profile.jpg\">
+                                    </div>
+                                </div>
+                                <div class=\"columna_comentario\">
+                                    <p><strong>@".$arrayLinea[0]."</strong>, sobre ".$arrayLinea[1]."</p>
+                                    <p>".$arrayLinea[2]."</p>
+                                </div>
+                              </div>";
+                        $numLinea++;               
+                    }
+                    fclose($comentarios);
+                }
+            ?>
+        </section>
         <section class="login" id="login">
             <h3>Inicia sesión para añadir un comentario</h3>
             <form action="bienvenida.php" method="post">
@@ -63,7 +81,6 @@
                 <br><br>
                 <input class="botonForm" type="submit" value="Enviar"/>
             </form>
-            <br><br>
             <h3>¿No tienes cuenta? Registrate ahora</h3>
             <form action="bienvenida.php" method="post">
                 Usuario: <br><input class="inputForm" type="text" name="nombre"/>
@@ -72,63 +89,6 @@
                 <br><br>
                 <input class="botonForm" type="submit" value="Enviar"/>
             </form>
-        </section>
-        <section class="comentarios">
-            <h3>Comentarios de nuestros visitantes:</h3>
-            <div class="comentario">
-                <div class="columna_foto">
-                    <img class="foto_comentador" src="images/default-profile.jpg">
-                </div>
-                <div class="columna_comentario">
-                    <p>[Nombre del comentador], sobre [Proyecto en el que ha comentado]</p>
-                    <p>Texto del comentario 1</p>
-                </div>
-            </div>
-            <div class="comentario">
-                <div class="columna_foto">
-                    <img class="foto_comentador" src="images/default-profile.jpg">
-                </div>
-                <div class="columna_comentario">
-                    <p>[Nombre de usuario], sobre [Proyecto del comentario]</p>
-                    <p>Texto del comentario 2</p>
-                </div>
-            </div>
-            <div class="comentario">
-                <div class="columna_foto">
-                    <img class="foto_comentador" src="images/default-profile.jpg">
-                </div>
-                <div class="columna_comentario">
-                    <p>[Nombre de usuario], sobre [Proyecto del comentario]</p>
-                    <p>Texto del comentario 3</p>
-                </div>
-            </div>
-            <div class="comentario">
-                <div class="columna_foto">
-                    <img class="foto_comentador" src="images/default-profile.jpg">
-                </div>
-                <div class="columna_comentario">
-                    <p>[Nombre de usuario], sobre [Proyecto del comentario]</p>
-                    <p>Texto del comentario 4</p>
-                </div>
-            </div>
-            <div class="comentario">
-                <div class="columna_foto">
-                    <img class="foto_comentador" src="images/default-profile.jpg">
-                </div>
-                <div class="columna_comentario">
-                    <p>[Nombre de usuario], sobre [Proyecto del comentario]</p>
-                    <p>Texto del comentario 5</p>
-                </div>
-            </div>
-            <div class="comentario">
-                <div class="columna_foto">
-                    <img class="foto_comentador" src="images/default-profile.jpg">
-                </div>
-                <div class="columna_comentario">
-                    <p>[Nombre de usuario], sobre [Proyecto del comentario]</p>
-                    <p>Texto del comentario 6</p>
-                </div>
-            </div>
         </section>
     </div>
 </body>
