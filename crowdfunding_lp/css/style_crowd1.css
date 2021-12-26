@@ -298,7 +298,7 @@ footer{
 
 .inicio{
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     padding-bottom: 2vh;
     padding-left: 10vh;
 }
@@ -307,12 +307,14 @@ footer{
     align-items: flex-end;
     flex:4;
     padding-left: 10vh;
-    margin-top: 4vh;  
+    justify-content: center;
+    padding-bottom: 2vh;
+    
 }
 
 .inputForm{
-    margin-top: 1vh;
-    font-size: 10px;
+    width: 100%;
+    font-size: 8px;
 }
 
 .botonForm{
