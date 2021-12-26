@@ -18,3 +18,6 @@ function subirPantalla() // Función recursiva que sube la pantalla gradualmente
         setTimeout(function() { subirPantalla(); }, 5); // Esperar unos milisegundos para que se siente como una transicion
     }
 }
+const recaudo =1500
+
+document.createTextNode("recaudacion")
