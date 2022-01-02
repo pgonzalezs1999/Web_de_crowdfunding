@@ -234,18 +234,18 @@ footer{
 /* Layout de los comentarios*/
 .comentario_Incio{
     display: flex;
-    width: 100%;
-}
-.comments-container{
-    justify-content: center;
-    flex-direction: column;
+    flex-flow: row-reverse;
     background-color: #efefef;
-    width: 100%;
+    margin-top: 1vh;
+    padding-top: 10px;
+    padding-left: 4vw;
+}
+.comentarios
+{
+    width: 80%;
     padding-bottom: 10px;
     padding-left: 5vw;
     padding-right: 5vw;
-    margin-top: 3%;
-    padding-top: 2%;
 }
 
 .comentario
@@ -255,71 +255,47 @@ footer{
     border-style: solid;
     border-width: 1px;
     background-color: white;
-    margin-bottom: 3vh;
+    margin-bottom: 10px;
+    padding-right: 30px;
     border-radius: 10px;
+    line-height: 120%;
 }
 
-.comentario_foto
+.columna_foto
 {
     flex: 1;
 }
 
-.foto_usuario
+.foto_comentador
 {
-    width: 80px;
-    padding-left: 1vw;
-    padding-top: 1vw;
-    border-radius: 90%;
+    width: 60px;
+    margin: 20px;
+    border-radius: 100%;
 }
 
-.texto_comentario
+.columna_comentario
 {
-    padding-left: 3vw;
-    padding-bottom: 1vh;
-    flex:8;
+    flex: 10;
 }
 /*Layout de login*/
-
-.container-login{
-    width: 30%;
-    margin-top: 3%;
-    justify-content: flex-start;
-    display: flex;
-    background-color: #efefef;
-}
-.textoContacto{
-    margin-top: 10vh;
+.login
+{
+    width: 200px;
 }
 
-.login{
-    display: flex;
-    flex-direction: column;
-}
-
-.inicio{
-    justify-content: center;
-    align-items: flex-start;
-    padding-bottom: 2vh;
-    padding-left: 10vh;
-}
-
-.registro{
-    align-items: flex-end;
-    flex:4;
-    padding-left: 10vh;
-    justify-content: center;
-    padding-bottom: 2vh;
-    
-}
-
-.inputForm{
+.inputForm
+{
     width: 100%;
-    font-size: 8px;
 }
 
-.botonForm{
-    margin-top:2vh;
+.botonForm
+{
+    color: black;
     background-color: var(--nuestroColor);
+    text-decoration: none;
+    width: 40%;
+    height: 30px;
+    margin-bottom: 25px;
 }
 
 .regreso
@@ -383,17 +359,38 @@ p{
     .comentario_Incio
     {
         display: block;
+        background-color: #efefef;
+        margin-top: 1vh;
+        padding-top: 10px;
+        padding-left: 4vw;
+        margin: 0%;
+        padding-bottom: 25px;
     }
 
-    .container-login
+    .login
     {
         width: 100%;
-        background-color:#efefef ;
+        text-align: center;
     }
 
-    .comments-container
+    .comentarios
     {
-        width: 100%;
+        width: 95%;
+        padding: 0%;
+        padding-bottom: 10px;
+    }
+
+    .comentario
+    {
+        width: 95%;
+        padding-right: 25px;
+        padding-left: 10px;
+        padding-top: 10px;
+    }
+
+    .inputForm
+    {
+        width: 50%;
     }
 
     .imagenes_secundarias

@@ -7,42 +7,71 @@
     <meta proprty="twitter:card" content="summary">
     <meta name="author" content="Pablo Gonzalez y Leticia Gruneiro">
     <title>Crowdfundings Leticia y Pablo</title>
-    <link rel="stylesheet" href="css/styleIndex.css">
+    <link rel="stylesheet" href="css/style_crowd1.css">
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <link href='https://css.gg/chevron-up.css' rel='stylesheet'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2&display=swap" rel="stylesheet">
-</head>
-<header>
-    <img class="logo" src="images/crow3.JPG" alt="Desastre de la palma">
-    <h1>Crowdfundings González-Gruñeiro</h1>
-    <h2>Somos dos alumnos de la Universidad Europea de Madrid. Nuestro objetivo es concienciar a la población de problemas en el mundo y, mediante recaudación colectiva, conseguir los fondos suficientes para aportarles solución</h2>
-    <nav class="navPrincipal">
-        <ul>
-            <li class="ratonMano"><a href="#login">Iniciar sesión</a></li>
-            <li class="ratonMano"><a href="#footer">Contacto</a></li>
-        </ul>
-    </nav>
-</header>
 <body>
-    <img src="images/index-banner.jpg" class="banner">
-    <h3 class="tituloProyectos">Causas en las que colaboramos</h3>
-    <div class="proyectos">
-        <div class="proyecto">
-            <img src="images/image1.jpg">
-            <p>Hace unas semanas el volcán de La Palma de Gran Canaria entró en erupción, dejando sin hogar a decenas de familias</p>
-            <button><a href="crowd1.html">Volcán de La Palma</a></button>
+    <header>
+        <div class="logo">
+            <a href="index.php"><img src="images/crow3.JPG" alt="logo"></a>
         </div>
-        <div class="proyecto">
-            <img src="images/coming_soon.jpg">
-            <p>Aquí una breve descripción del proyecto 2, para animar a la gente a que se interese por el proyecto y pulse el botón</p>
-            <button><a href="crowd2.html">Crowdfunding 2</a></button>
+        <h1>Recaudación de fondos para La Palma </h1>
+        <h2>Después de este de la explosión, quisimos aportar nuestro pequeño grano de arena para porder ayudar a la gente que se ha quedado sin casa. </h2>
+    </header> 
+        <nav class="navPrincipal">
+            <ul>
+                <li class="ratonMano" ><a href="#login">Iniciar sesión</a></li>
+                <li class="ratonMano"><a href="#Contacto">Contacto</a></li>
+            </ul>
+        </nav>
+      
+    <div class="informacion_principal">
+
+        <div class= "columnas_informacion">
+            <img class="foto_principal" src="images/LaPalma_desatre.jpeg" alt="Desastre de la palma" width="500px" height="300px">
         </div>
-        <div class="proyecto">
-            <img src="images/coming_soon.jpg">
-            <p>Aquí una breve descripción del proyecto 3, para animar a la gente a que se interese por el proyecto y pulse el botón</p>
-            <button><a href="crowd3.html">Crowdfunding 3</a></button>
+
+        <div id="texto_informacion">
+            
+            <h3>Erupción de la Palma</h3>
+
+            <p>Tras la impresionante erupción del volcán ubicado en la isla de La Palma, muchos habitantes se han visto obligados a dejar su casa debido a que la lava iba en direccción de sus respectivas casas. 
+                Por esto, hemos visto como una necesidad humana hacer una recaudación de fondos a tráves de un crowfounding para ayudar a estos ciudadanos</p>
+
+            <p class="recaudacion"></p>
+
+            <div class="dinero">
+                <p class="textoPorcentaje">50%</p>
+                <div class="barraProgreso">
+                    <div class="porcentaje"></div>
+                </div>
+            </div>
+            <P class="personas_apoyo">42 personas han apoyado esta causa</P>
+            
+
+            <div class="botones">
+                <button class="button"><a id="enlace_donar" href="donacion.html">Donar</a></button>
+                <button class="button">Compartir</button>
+            </div>          
+            
+        </div>
+    </div>
+
+    <div class="imagenes_secundarias">
+
+        <div class="imagenes_desastre"> 
+            <img src="images/image1.jpg" alt="Desastre de La Palma"> 
+        </div>
+
+        <div class="imagenes_desastre"> 
+            <img src="images/image2.jpg" alt="Desastre de La Palma">
+        </div>
+
+        <div class="imagenes_desastre"> 
+            <img src="images/image3.jpg" alt="Desastre de La Palma">
         </div>
     </div>
     <div class="bloqueComentarios">
