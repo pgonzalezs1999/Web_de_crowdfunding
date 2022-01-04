@@ -232,7 +232,7 @@ footer{
     
 }
 /* Layout de los comentarios*/
-.comentario_Incio{
+.comentario_Inicio{
     display: flex;
     flex-flow: row-reverse;
     background-color: #efefef;
@@ -240,12 +240,15 @@ footer{
     padding-top: 10px;
     padding-left: 4vw;
 }
+
 .comentarios
 {
+    flex: 6;
     width: 80%;
     padding-bottom: 10px;
     padding-left: 5vw;
     padding-right: 5vw;
+    margin-bottom: 1vh;
 }
 
 .comentario
@@ -260,7 +263,26 @@ footer{
     border-radius: 10px;
     line-height: 120%;
 }
+.comentar{
 
+    border: #e6e6e6;
+    border-style: solid;
+    height: 3vh;
+    width: 20vw;
+    border-width: 1px;
+    background-color: white;
+    margin-bottom: 10px;
+    padding-right: 20px;
+    line-height: 120%;
+}
+.botonComents{
+    color: black;
+    background-color: var(--nuestroColor);
+    text-decoration: none;
+    width: 5vw;
+    height: 30px;
+    margin-bottom: 20px;
+}
 .columna_foto
 {
     flex: 1;
@@ -280,6 +302,7 @@ footer{
 /*Layout de login*/
 .login
 {
+    flex:1;
     width: 200px;
 }
 

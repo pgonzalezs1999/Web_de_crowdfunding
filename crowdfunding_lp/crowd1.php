@@ -7,7 +7,7 @@
     <meta proprty="twitter:card" content="summary">
     <meta name="author" content="Pablo Gonzalez y Leticia Gruneiro">
     <title>Crowdfundings Leticia y Pablo</title>
-    <link rel="stylesheet" href="css/style_crowd1.css">
+    <link rel="stylesheet" href="css/styleCrowd1.css">
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <link href='https://css.gg/chevron-up.css' rel='stylesheet'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -74,9 +74,14 @@
             <img src="images/image3.jpg" alt="Desastre de La Palma">
         </div>
     </div>
-    <div class="bloqueComentarios">
+    <div class="comentario_Inicio">
         <section class="comentarios">
+            <h3> Dejanos tu comentario: </h3>
+            <input type="text" class="comentar" name=""><br><br>
+            <input class="botonComents" type="submit" value="Enviar"/>
+            
             <h3>Comentarios de nuestros usuarios:</h3>
+
             <?php
                 $comentarios = fopen("database/comentarios.csv", "r");
                 if ($comentarios !== FALSE)

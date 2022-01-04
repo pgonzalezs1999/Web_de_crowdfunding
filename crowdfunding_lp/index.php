@@ -32,7 +32,7 @@
         <div class="proyecto">
             <img src="images/image1.jpg">
             <p>Hace unas semanas el volcán de La Palma de Gran Canaria entró en erupción, dejando sin hogar a decenas de familias</p>
-            <button><a href="crowd1.html">Volcán de La Palma</a></button>
+            <button><a href="crowd1.php">Volcán de La Palma</a></button>
         </div>
         <div class="proyecto">
             <img src="images/coming_soon.jpg">
