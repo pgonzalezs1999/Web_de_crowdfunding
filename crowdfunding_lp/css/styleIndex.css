@@ -10,6 +10,23 @@ body
     padding: 0px;
 }
 
+.estadoSesion
+{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    border-bottom: solid 1px black;
+    background-color: var(--nuestroColor);
+}
+
+.estadoSesion p
+{
+    margin: 0px;
+    margin-left: 10px;
+    padding: 0px;
+}
+
 .logo
 {
     display: block;
@@ -142,33 +159,26 @@ h2
     color: black;
 }
 
-.bloqueComentarios
-{
-    display: flex;
-    flex-flow: row-reverse;
-    background-color: #efefef;
-    margin-top: 1vh;
-    padding-top: 10px;
-    padding-left: 4vw;
-}
-
 .comentarios
 {
-    width: 80%;
+    background-color: #efefef;
+    margin: 0px;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 10px;
     padding-bottom: 10px;
-    padding-left: 5vw;
-    padding-right: 5vw;
 }
 
 .comentario
 {
+    width: 90%;
     display: flex;
     border: #e6e6e6;
     border-style: solid;
     border-width: 1px;
     background-color: white;
     margin-bottom: 10px;
-    padding-right: 30px;
+    padding-right: 5%;
     border-radius: 10px;
     line-height: 120%;
 }
@@ -192,12 +202,12 @@ h2
 
 .login
 {
-    width: 200px;
+    text-align: center;
 }
 
 .inputForm
 {
-    width: 100%;
+    width: 40%;
 }
 
 .botonForm
@@ -254,7 +264,7 @@ footer a
     }
 }
 
-@media only screen and (max-width: 640px)
+@media only screen and (max-width: 720px)
 {
     h2
     {
@@ -267,40 +277,11 @@ footer a
         max-width: 300px;
     }
 
-    .bloqueComentarios
-    {
-        display: block;
-        background-color: #efefef;
-        margin-top: 1vh;
-        padding-top: 10px;
-        padding-left: 4vw;
-        margin: 0%;
-        padding-bottom: 25px;
-    }
-
-    .login
-    {
-        width: 100%;
-        text-align: center;
-    }
-
-    .comentarios
-    {
-        width: 95%;
-        padding: 0%;
-        padding-bottom: 10px;
-    }
-
     .comentario
     {
-        width: 95%;
+        width: 100%;
         padding-right: 25px;
         padding-left: 10px;
         padding-top: 10px;
-    }
-
-    .inputForm
-    {
-        width: 50%;
     }
 }
