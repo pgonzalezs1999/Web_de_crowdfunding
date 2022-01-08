@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
     session_start();
+    $paginaActual = "index";
 ?>
 <html lang="es">
 <head>
