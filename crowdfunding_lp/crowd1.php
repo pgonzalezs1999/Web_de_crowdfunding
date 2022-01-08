@@ -15,6 +15,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2&display=swap" rel="stylesheet">
 <body>
     <header>
+        <?php
+            if(isset($_SESSION['username']))
+            {
+                echo
+                '<div class="estadoSesion">
+                    <p class="textoSesion">Sesión iniciada como: '.$_SESSION['username'].'</p>
+                </div>';
+            }
+        ?>
         <div class="logo">
             <a href="index.php"><img src="images/crow3.JPG" alt="logo"></a>
         </div>
@@ -23,7 +32,12 @@
     </header> 
         <nav class="navPrincipal">
             <ul>
-                <li class="ratonMano" ><a href="#login">Iniciar sesión</a></li>
+                <?php
+                    if(!isset($_SESSION['username']))
+                    {
+                        echo '<li class="ratonMano"><a href="#login">Iniciar sesión</a></li>';
+                    }
+                ?>
                 <li class="ratonMano"><a href="#Contacto">Contacto</a></li>
             </ul>
         </nav>
@@ -108,20 +122,23 @@
         </section>
         <section class="login" id="login">
             <h3>Inicia sesión para añadir un comentario</h3>
-            <form action="bienvenida.php" method="post">
-                Usuario: <br><input class="inputForm" type="text" name="nombre"/>
+            <form action="validarLogin.php" method="post">
+                Usuario: <br><input class="inputForm" type="text" name="username"/>
                 <br>
-                Contraseña: <br><input class="inputForm" type="text" name="contrasena"/>
+                Contraseña: <br><input class="inputForm" type="password" name="password"/>
                 <br><br>
                 <input class="botonForm" type="submit" value="Enviar"/>
             </form>
+
             <h3>¿No tienes cuenta? Registrate ahora</h3>
-            <form action="bienvenida.php" method="post">
-                Usuario: <br><input class="inputForm" type="text" name="nombre"/>
+            <form action="registroUsers.php" method="post">
+                Usuario <br><input class="inputForm" type="text" name="username"/>
                 <br>
-                Contraseña: <br><input class="inputForm" type="text" name="contrasena"/>
+                Contraseña <br><input class="inputForm" type="password" name="password"/>
                 <br><br>
-                <input class="botonForm" type="submit" value="Enviar"/>
+                Repetir contraseña <br><input class="inputForm" type="password" name="repassword"/>
+                <br><br>
+                <input class="botonForm" type="submit" value="Enviar" name="enviar"/>
             </form>
         </section>
     </div>

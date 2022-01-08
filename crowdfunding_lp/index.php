@@ -91,7 +91,7 @@
     </div>
     <div class="login" id="login">
         <h3>Inicia sesión para añadir un comentario</h3>
-        <form action="validarlogin.php" method="post">
+        <form action="validarLogin.php" method="post">
             Nombre de usuario:<br><input class="inputForm inputUsername" type="text" name="username"/>
             <br><br>
             Contraseña:<br><input class="inputForm inputPassword" type="text" name="password"/>
@@ -109,7 +109,7 @@
         </div>
 </body>
 <footer id="footer">
-    <p><a href="validarLogIn.php">Cerrar sesión</a></p>
+    <p><a href="validarLogin.php">Cerrar sesión</a></p>
     <p>Trabajo realizado por:</p>
     <p>Pablo González - Github: <a href="https://github.com/pgonzalezs1999">pgonzalezs1999</a></p>
     <p>Leticia Gruñeiro - Github: <a href="https://github.com/lgruneirodem">lgruneirodem</a></p>
