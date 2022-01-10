@@ -11,7 +11,7 @@
     <meta proprty="twitter:card" content="summary">
     <meta name="author" content="Pablo Gonzalez y Leticia Gruneiro">
     <title>Crowdfundings Leticia y Pablo</title>
-    <link rel="stylesheet" href="css/styleIndex.css?version=51">
+    <link rel="stylesheet" href="css/styleIndex.css?version=52">
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <link href='https://css.gg/chevron-up.css' rel='stylesheet'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -50,22 +50,31 @@
         <div class="proyecto">
             <img src="images/image1.jpg">
             <p>Hace unas semanas el volcán de La Palma de Gran Canaria entró en erupción, dejando sin hogar a decenas de familias</p>
-            <button><a href="crowd1.php">Volcán de La Palma</a></button>
+            <button class="botonForm"><a href="crowd1.php">Volcán de La Palma</a></button>
         </div>
         <div class="proyecto">
-            <img src="images/coming_soon.jpg">
-            <p>Aquí una breve descripción del proyecto 2, para animar a la gente a que se interese por el proyecto y pulse el botón</p>
-            <button><a href="crowd2.html">Crowdfunding 2</a></button>
+            <img src="images/Filipinas_desastre.jpg">
+            <p>El 19 de diciembre de 2021, el supertifón Rai arrasó por Bohol, Filipinas, destrozando gran parte de la ciudad</p>
+            <button class="botonForm"><a href="crowd2.html">Crowdfunding 2</a></button>
         </div>
         <div class="proyecto">
             <img src="images/coming_soon.jpg">
             <p>Aquí una breve descripción del proyecto 3, para animar a la gente a que se interese por el proyecto y pulse el botón</p>
-            <button><a href="crowd3.html">Crowdfunding 3</a></button>
+            <button class="botonForm"><a href="crowd3.html">Crowdfunding 3</a></button>
         </div>
     </div>
     <div class="comentarios">
         <h3>Comentarios de nuestros usuarios:</h3>
         <?php
+            if(isset($_SESSION['username']))
+            {
+                echo '
+                <h3>Dejanos tu comentario:</h3>
+                <div class="nuevoComentario">
+                    <input type="text" class="comentar" name=""><br><br>
+                    <input class="botonComentar ratonMano" type="submit" value="Enviar"/>
+                </div>';
+            }
             $comentarios = fopen("database/comentarios.csv", "r");
             if ($comentarios !== FALSE)
             {
@@ -89,27 +98,40 @@
             }
         ?>
     </div>
-    <div class="login" id="login">
-        <h3>Inicia sesión para añadir un comentario</h3>
-        <form action="validarLogin.php" method="post">
-            Nombre de usuario:<br><input class="inputForm inputUsername" type="text" name="username"/>
-            <br><br>
-            Contraseña:<br><input class="inputForm inputPassword" type="text" name="password"/>
-            <br><br>
-            <button class="botonForm" type="submit">Iniciar sesión</button>
-        </form>
-        <!-- <h3>¿No tienes cuenta? Registrate ahora</h3>
-        <form action="index.php" method="post">
-            Usuario: <br><input class="inputForm" type="text" name="nombre"/>
-            <br>
-            Contraseña: <br><input class="inputForm" type="text" name="contrasena"/>
-            <br><br>
-            <input class="botonForm" type="submit" value="Registrarse"/>
-        </form> -->
-        </div>
+    <?php
+        if(!isset($_SESSION['username']))
+        {
+            $_SESSION['cerrarSesion'] = FALSE;
+            echo '
+            <div class="login" id="login">
+                <h3>Inicia sesión para añadir un comentario</h3>
+                <form action="validarLogin.php" method="post">
+                    Nombre de usuario:<br><input class="inputForm inputUsername" type="text" name="username"/>
+                    <br><br>
+                    Contraseña:<br><input class="inputForm inputPassword" type="text" name="password"/>
+                    <br><br>
+                    <button class="botonForm ratonMano" type="submit">Iniciar sesión</button>
+                </form>
+                <!-- <h3>¿No tienes cuenta? Registrate ahora</h3>
+                <form action="index.php" method="post">
+                    Usuario: <br><input class="inputForm" type="text" name="nombre"/>
+                    <br>
+                    Contraseña: <br><input class="inputForm" type="text" name="contrasena"/>
+                    <br><br>
+                    <input class="botonForm ratonMano" type="submit" value="Registrarse"/>
+                </form> -->
+            </div>';
+        }
+    ?>
 </body>
 <footer id="footer">
-    <p><a href="validarLogin.php">Cerrar sesión</a></p>
+    <?php
+    if(isset($_SESSION['username']))
+    {
+        $_SESSION['cerrarSesion'] = TRUE;
+        echo '<p><a href="validarLogin.php">Cerrar sesión</a></p>';
+    }
+    ?>
     <p>Trabajo realizado por:</p>
     <p>Pablo González - Github: <a href="https://github.com/pgonzalezs1999">pgonzalezs1999</a></p>
     <p>Leticia Gruñeiro - Github: <a href="https://github.com/lgruneirodem">lgruneirodem</a></p>

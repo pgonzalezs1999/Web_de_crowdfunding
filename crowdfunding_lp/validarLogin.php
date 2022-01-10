@@ -24,8 +24,12 @@
 <body>
     <?php
         $esCorrecto = FALSE;
-
-        if(isset($_POST['username']) && isset($_POST['password']))
+        if($_SESSION['cerrarSesion'] == TRUE)
+        {
+            session_destroy();
+            echo '<p class="explicacion">Sesión cerrada correctamente<br></p>';
+        }
+        else if(isset($_POST['username']) && isset($_POST['password']))
         {
             $intentoUsername = $_POST['username'];
             $intentoPassword = $_POST['password'];
@@ -55,13 +59,12 @@
             }
             else
             {
-                session_destroy();
                 echo '<p class="explicacion">Usuario o contraseña no coinciden<br></p>';
             }
         }
         else
         {
-            echo '<p class="explicacion">Sesión cerrada correctamente<br></p>';
+            echo '<p class="explicacion">No se han introducido los datos correctamente<br></p>';
         }
 
         echo
