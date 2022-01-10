@@ -48,19 +48,18 @@ h2
     padding-bottom: 2vh;
     padding-left: 5vw;
     padding-right: 5vw;
-    text-align: center;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 6px 15px 0 rgba(0, 0, 0, 0.19);
 }
 .textfield{
-    align-items: flex-start;
-    text-align: flex-start;
-    width: 60vw;
-    height: 40vh;
+    align-items:flex-start;
+    
     margin-bottom: 2vh;
 
 }
 .UsuarioText{
-    
+    margin-top: 2vh;
+    margin-right: 44vw;
+
 
 }
 .ratonMano

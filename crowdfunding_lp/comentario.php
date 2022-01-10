@@ -53,7 +53,7 @@
     
     <div class="container-comments">
         <h3>Dejanos tu comentario</h3>
-        Usuario  <input class="UsuarioText" type="text" name="UsuarioText"/>
+        Usuario <input class="UsuarioText" type="text" name="UsuarioText"/>
         <br>
         <br><input class="textfield" type="text" name="TextoComentario"/>
         <br>
