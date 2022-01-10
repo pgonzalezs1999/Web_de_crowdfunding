@@ -66,7 +66,7 @@
             <div class="cont">
                 <!-- <p class="textoPorcentaje">50%</p> -->
                 <div class="loader">
-                    <label class="counter">Profile is <span>0%</span> complete</label>
+                    <label class="counter"><span>0%</span> complete</label>
                 </div>
             </div>
             <P class="personas_apoyo">42 personas han apoyado esta causa</P>
@@ -96,9 +96,46 @@
     </div>
     <div class="comentario_Inicio">
         <section class="comentarios">
-            <h3> Dejanos tu comentario: </h3>
-            <input type="text" class="comentar" name=""><br><br>
-            <input class="botonComents" type="submit" value="Enviar"/>
+            <?php
+            if(isset($_SESSION['username']))
+            {
+                echo 
+                '<h3>Dejanos tu comentario:</h3>
+                    <div class="nuevoComentario">
+                        <input type="text" class="comentar" name="textComentario"><br><br>
+                        <input class="botonComentar ratonMano" type="submit" value="Enviar" name="BotonComentario"/>
+                    </div>';
+            }
+            /*
+            if(isset($_POST['BotonComentario'])){
+                $fp = fopen('database/comentarios.csv','w');
+                or die();
+                fwrite($fp,$_POST['username']);
+                fwrite($fp,$_POST[';']);
+                fwrite
+            */
+
+
+                        /*
+                        if (!$fp) {echo 'ERROR: No ha sido posible abrir el archivo. Revisa su nombre y sus permisos.'; exit;}
+                        $counter = 0; // contador de líneas
+                        while (!feof($fp)) { // loop hasta que se llegue al final del archivo
+                            $loop++;
+                            $line = fgets($fp); // guardamos toda la línea en $line como un string
+                            // dividimos $line en sus celdas, separadas por el caracter |
+                            // e incorporamos la línea a la matriz $field
+                            $field[$loop] = explode (';', $line);
+                            // generamos la salida HTML
+                            echo '
+                                username: '.$field[$counter][0].'
+                                crowfounding: '.$field[$counter][1].'
+                                textComentario: '.$field[$counter][2].'
+                                ';
+                            fwrite($fp,$_POST['textComentario'])
+                            $fp++; // necesitamos llevar el puntero del archivo a la siguiente línea
+                        }*/
+                }
+            ?>
             
             <h3>Comentarios de nuestros usuarios:</h3>
 
