@@ -5,7 +5,6 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    
     <meta charset="utf-8">
     <link rel="icon" href="images/icono.jpg">
     <meta proprty="twitter:card" content="summary">
@@ -21,6 +20,7 @@
 </head>
 <body>
     <header>
+        <p class="avisoLeti"><b>Ya he creado una forma de añadir con los comentarios (aunque aun tengo que perfeccionarlo). Puedes verlo en el index.php. Ponte mejor con el registro de usuarios y la barra de donaciones que son más importantes ahora (puedes borrar esto cuando lo leas)</b></p>
         <?php
             if(isset($_SESSION['username']))
             {

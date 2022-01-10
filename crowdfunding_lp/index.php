@@ -2,30 +2,40 @@
 <?php
     session_start();
     $_SESSION['paginaActual'] = "index";
+    echo "Antes: " . $_POST["textoComentario"];
+    if(isset($_POST['textoComentario']))
+    {
+        $ficheroComentarios = fopen("database/comentarios.csv", "a");
+        $lineaNueva = [$_SESSION['username'], "CrowdfundingLP", $_POST['textoComentario']];
+        fputcsv($ficheroComentarios, $lineaNueva);
+        fclose($ficheroComentarios);
+        unset($_POST);
+    }
 ?>
 <html lang="es">
-<head>
-    <!-- http://localhost/Pablo/crowdfunding_lp/crowdfunding_lp/index.php -->
-    <meta charset="utf-8">
-    <link rel="icon" href="images/icono.jpg">
-    <meta proprty="twitter:card" content="summary">
-    <meta name="author" content="Pablo Gonzalez y Leticia Gruneiro">
-    <title>Crowdfundings Leticia y Pablo</title>
-    <link rel="stylesheet" href="css/styleIndex.css?version=52">
-    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-    <link href='https://css.gg/chevron-up.css' rel='stylesheet'>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2&display=swap" rel="stylesheet">
-</head>
-<header>
+    <head>
+        <!-- http://localhost/Pablo/crowdfunding_lp/crowdfunding_lp/index.php -->
+        <meta charset="utf-8">
+        <link rel="icon" href="images/icono.jpg">
+        <meta proprty="twitter:card" content="summary">
+        <meta name="author" content="Pablo Gonzalez y Leticia Gruneiro">
+        <title>Crowdfundings Leticia y Pablo</title>
+        <link rel="stylesheet" href="css/styleIndex.css?version=52">
+        <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+        <link href='https://css.gg/chevron-up.css' rel='stylesheet'>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2&display=swap" rel="stylesheet">
+    </head>
+    <header>
     <?php
         if(isset($_SESSION['username']))
         {
             echo
             '<div class="estadoSesion">
                 <p class="textoSesion">Sesión iniciada como: '.$_SESSION['username'].'</p>
-            </div>';
+            </div>
+            <br>';
         }
     ?>
     <a href="index.php"><img class="logo" src="images/crow3.JPG" alt="Logo PL"><a>
@@ -69,32 +79,41 @@
             if(isset($_SESSION['username']))
             {
                 echo '
-                <h3>Dejanos tu comentario:</h3>
-                <div class="nuevoComentario">
-                    <input type="text" class="comentar" name=""><br><br>
-                    <input class="botonComentar ratonMano" type="submit" value="Enviar"/>
-                </div>';
+                <h3>Déjanos tu comentario:</h3>
+                <form class="nuevoComentario action="index.php" method="post">
+                    <input type="text" class="comentar" name="textoComentario"/>
+                    <button class="botonComentar ratonMano" type="submit">Iniciar sesión</button>
+                </form>';
             }
             $comentarios = fopen("database/comentarios.csv", "r");
+            $listaComentarios;
             if ($comentarios !== FALSE)
             {
                 $numLinea = 1;
-                while (($arrayLinea = fgetcsv($comentarios, 1000, ",")) !== FALSE and $numLinea <= 10)
+                while (($arrayLinea = fgetcsv($comentarios, 1000, ",")))
                 {
-                    echo '<div class="comentario">
+                    $listaComentarios[$numLinea-1] = $arrayLinea;
+                    $numLinea++;               
+                }
+                fclose($comentarios);
+                for($i=count($listaComentarios)-1; $i>=count($listaComentarios)-10; $i=$i-1)
+                {
+                    if($i>=0)
+                    {
+                        echo '
+                        <div class="comentario">
                             <div class="columna_foto">
                                 <div>
                                     <img class="foto_comentador" src="images/default-profile.jpg">
                                 </div>
                             </div>
                             <div class="columna_comentario">
-                                <p><strong>@'.$arrayLinea[0].'</strong>, sobre <b>'.$arrayLinea[1].'</b></p>
-                                <p>'.$arrayLinea[2].'</p>
+                                <p><strong>@'.$listaComentarios[$i][0].'</strong>, sobre <b>'.$listaComentarios[$i][1].'</b></p>
+                                <p>'.$listaComentarios[$i][2].'</p>
                             </div>
                         </div>';
-                    $numLinea++;               
+                    }
                 }
-                fclose($comentarios);
             }
         ?>
     </div>
