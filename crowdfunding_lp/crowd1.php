@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $paginaActual = "Crowd1";
+    $_SESSION['paginaActual'] = "crowd1";
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -11,7 +11,7 @@
     <meta proprty="twitter:card" content="summary">
     <meta name="author" content="Pablo Gonzalez y Leticia Gruneiro">
     <title>Crowdfunding La Palma</title>
-    <link rel="stylesheet" href="css/styleCrowd1.css">
+    <link rel="stylesheet" href="css/styleCrowd1.css?version=51">
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <link href='https://css.gg/chevron-up.css' rel='stylesheet'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
