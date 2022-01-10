@@ -66,7 +66,8 @@
 
         echo
         '<p class="explicacion">Pulsa el botón para regresar a la pantalla anterior</p><br>
-        <button class="botonVolver"><a href="index.php">Regresar</a></button>';
+        <button class="botonVolver"><a href="index.php">Regresar</a></button>
+        <button class="botonVolver"><a href="comentario.php"> Comentar </a></button>';
     ?>
 </body>
 <footer id="footer">

@@ -1,18 +1,24 @@
+<?php
+    session_start();
+    $paginaActual = "Crowd1";
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- http://localhost/Pablo/crowdfunding_lp/crowdfunding_lp/index.php -->
+    
     <meta charset="utf-8">
     <link rel="icon" href="images/icono.jpg">
     <meta proprty="twitter:card" content="summary">
     <meta name="author" content="Pablo Gonzalez y Leticia Gruneiro">
-    <title>Crowdfundings Leticia y Pablo</title>
+    <title>Crowdfunding La Palma</title>
     <link rel="stylesheet" href="css/styleCrowd1.css">
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <link href='https://css.gg/chevron-up.css' rel='stylesheet'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
 <body>
     <header>
         <?php
@@ -57,10 +63,10 @@
 
             <p class="recaudacion"></p>
 
-            <div class="dinero">
-                <p class="textoPorcentaje">50%</p>
-                <div class="barraProgreso">
-                    <div class="porcentaje"></div>
+            <div class="cont">
+                <!-- <p class="textoPorcentaje">50%</p> -->
+                <div class="loader">
+                    <label class="counter">Profile is <span>0%</span> complete</label>
                 </div>
             </div>
             <P class="personas_apoyo">42 personas han apoyado esta causa</P>
@@ -150,4 +156,5 @@
     <button class="regreso ratonMano"><i class="gg-chevron-up" onclick="regresar()"></i></button>
 </footer>
 <script src="js/principal.js"></script>
+<script src="js/crowd1.js"></script>
 </html>

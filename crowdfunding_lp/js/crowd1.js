@@ -1,23 +1,50 @@
-let altura; // Guardar altura actual de la pantalla
-let suavizado = 96; // Entre 1-99.999999, cuando mas alto mas smooth
+window.addEventListener("load", loadProgress)
 
-function regresar() // La funcion onClick del boton regresar
-{
-    altura = document.documentElement.scrollTop; // Actualizar la posicion actual de la pantalla
-    subirPantalla();
-}
+  function loadProgress(){
 
-function subirPantalla() // Función recursiva que sube la pantalla gradualmente
-{
-    if(altura <= 1) { altura = 0 }// Por matematicas nunca puede llegar a 0, asi que se le ayuda manualmente    
-    else
-    {
-        altura = altura*suavizado/100; // Calcular la altura de la siguiente iteracion
-        document.documentElement.scrollTop = altura; // Mover la pantalla a la altura calculada
+    // Get DOM element
+    const target = document.querySelector(".loader")
+    const counter = target.querySelector("span");
 
-        setTimeout(function() { subirPantalla(); }, 5); // Esperar unos milisegundos para que se siente como una transicion
+    // Sample form data
+    const details = {
+        name: "Jefferson",
+        age: 12,
+        weight: 70,
+        level: 30,
+        relationship: "",
+        contact: "",
+        email: "",
+     friends: 459
     }
-}
-const recaudo =1500
 
-document.createTextNode("recaudacion")
+
+    function getProgress(board){
+        let maxLength = 100;
+        // Put them into array to get length of form
+        let lengthOfBoard = Object.values(board).length;
+
+        // Get possible mark of each field
+        let jumps = maxLength/lengthOfBoard;
+        let progress = 0;
+        for (let field in board){
+            // If field is filled add it's mark to progress
+            if (board[field]) {
+                progress += jumps
+            }
+        }
+        return progress
+    }
+
+    // Utilise value calculated from loader
+    function implimentLoad(){
+        // Simulate a delay
+        setTimeout(()=>{
+            let progress = Math.round(getProgress(details))
+            counter.innerText = `${progress}% `;
+            target.style.width = `${getProgress(details)}% `
+        }, 1000)
+
+    }
+    implimentLoad()
+  }
