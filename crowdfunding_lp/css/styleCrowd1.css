@@ -202,7 +202,9 @@ h1
 /* Imagenes de la parte inferior de la web*/
 .imagenes_secundarias{
     display:flex;
-    width: auto;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 30px;
 }
 
 .imagenes_desastre{
@@ -225,7 +227,6 @@ h1
 }
 /* Layout del pie de página*/
 footer{
-    width: 100%;
     background-color: var(--nuestroColor);
     text-align: center;
     padding:1%;
