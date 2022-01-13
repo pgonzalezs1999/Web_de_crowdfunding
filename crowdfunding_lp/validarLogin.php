@@ -69,8 +69,6 @@
 
         echo '<p class="explicacion">Pulsa el botón para regresar a la pantalla anterior</p><br>';
 
-        echo "paginaActual: " . $_SESSION['paginaActual'] . "<br>";
-
         if($_SESSION['paginaActual']=="crowd1")
         {
             echo '<button class="botonVolver"><a href=crowd1.php>Regresar</a></button>';
@@ -83,7 +81,6 @@
         {
             echo '<button class="botonVolver"><a href=index.php>Regresar</a></button>';
         }
-        echo '<button class="botonVolver"><a href="comentario.php"> Comentar </a></button>';
     ?>
 </body>
 <footer id="footer">
