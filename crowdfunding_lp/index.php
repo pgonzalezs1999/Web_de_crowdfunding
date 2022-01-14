@@ -94,7 +94,7 @@
                         $ultimos[$numUltimos] = $listaComentarios[$i][2];
                         $numUltimos++;
                     }
-                    if(isset($_POST['textoComentario']) && $ultimos[0] != $_POST['textoComentario'])
+                    if(isset($_POST['textoComentario']) && $ultimos[0] != $_POST['textoComentario'] && $_POST['textoComentario'] != "")
                     {
                         $ficheroComentarios = fopen("database/comentarios.csv", "a");
                         $lineaNueva = [$_SESSION['username'], "CrowdfundingLP", $_POST['textoComentario']];
