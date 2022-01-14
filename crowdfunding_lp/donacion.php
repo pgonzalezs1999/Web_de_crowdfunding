@@ -17,12 +17,12 @@
         <div class="columnasFormulario">
             <div class="columnaFormulario">
                 <h3>Rellena el formulario para completar la ayuda</h3>
-                <form action="bienvenida.php" method="post">
-                Escribe tu nombre de usuario:<br><br><input type="text" name="nombre"/>
+                <form name ="FormularioDonacion" action="RegistroDonaciones.php" method="post">
+                Escribe tu nombre de usuario:<br><br><input type="text" name="username"/>
                 <br><br>
-                Escribe la cantidad para donar:<br><br><input class="inputDinero" type="text" name="contrasena"/>
+                Escribe la cantidad para donar:<br><br><input class="inputDinero" type="text" name="Dinero"/>
                 <br><br>
-                <input class="botonForm" type="submit" value="Enviar"/>
+                <input class="botonForm" type="submit" value="Enviar" name="botonDonacion"/>
             </form>
             </div>
             <div class="lineaVertical"></div>
@@ -43,4 +43,5 @@
     <button class="regreso ratonMano"><i class="gg-chevron-up" onclick="regresar()"></i></button>
 </footer>
 <script src="js/donacion.js"></script>
+<script src="js/crowd1.js"></script>
 </html>

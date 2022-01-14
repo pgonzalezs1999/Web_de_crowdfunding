@@ -20,34 +20,25 @@
 </header>
 <body>
     <?php
-        if(isset($_POST['RegistrarUser']))
+        if(isset($_POST['botonDonacion']))
         {
             
-            $ficheroComentarios = fopen("database/usuarios.csv", "a");
-            $lineaNueva = [$_POST['username'], $_POST['password']];
+            $ficheroComentarios = fopen("database/donaciones.csv", "a");
+            $lineaNueva = [$_POST['username'],"LaPalma", $_POST['Dinero']];
             fputcsv($ficheroComentarios, $lineaNueva);
             fclose($ficheroComentarios);
         }
-        if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['repassword'])){
-            
-            $Username = $_POST['username'];
-            $Password = $_POST['password'];
-            $RePassword = $_POST['repassword'];
-
-            
-            $ficheroUsuarios = fopen("database/usuarios.csv", "r");
-            if ($ficheroUsuarios !== FALSE)
+        
+        $ficheroUsuarios = fopen("database/donaciones.csv", "r");
+        if ($ficheroUsuarios !== FALSE)
             {
                 $numLinea = 1;
                 while (($arrayLinea = fgetcsv($ficheroUsuarios, 1000, ",")))
                 {
-                    if($arrayLinea[0] !==$Username && $arrayLinea[1] !== $Password){
-                        $numLinea++;
-                        $esCorrector = TRUE;
-                    }
+                    $numLinea++;
                 }
                 fclose($ficheroUsuarios);
-                echo '<p>Usuario creado correctamente</p>';
+                echo '<p>Gracias'.$arrayLinea[0].'por donar '.$arrayLinea[2].' €</p>';
             }
             if ($esCorrector = TRUE){
                 echo '<p>Usuario creado correctamente</p>';
@@ -57,7 +48,7 @@
             {
                 echo 'No se ha podido leer el fichero';
             }
-        }
+        
         echo
         '<p class="explicacion">Pulsa el botón para regresar a la pantalla anterior</p><br>
         <button class="botonVolver"><a href="index.php">Regresar</a></button>';

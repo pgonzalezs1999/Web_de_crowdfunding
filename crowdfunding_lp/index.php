@@ -132,7 +132,7 @@
                     <button class="botonForm ratonMano" type="submit">Iniciar sesión</button>
                 </form>
                 <!-- <h3>¿No tienes cuenta? Registrate ahora</h3>
-                <form action="index.php" method="post">
+                <form action="registroUsers.php" method="post">
                     Usuario: <br><input class="inputForm" type="text" name="nombre"/>
                     <br>
                     Contraseña: <br><input class="inputForm" type="text" name="contrasena"/>
