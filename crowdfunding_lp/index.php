@@ -56,12 +56,7 @@
             <div class="proyecto">
                 <img src="images/Filipinas_desastre.jpg">
                 <p>El 19 de diciembre de 2021, el supertifón Rai arrasó por Bohol, Filipinas, destrozando gran parte de la ciudad</p>
-                <button class="botonForm"><a href="crowd2.html">Crowdfunding 2</a></button>
-            </div>
-            <div class="proyecto">
-                <img src="images/coming_soon.jpg">
-                <p>Aquí una breve descripción del proyecto 3, para animar a la gente a que se interese por el proyecto y pulse el botón</p>
-                <button class="botonForm"><a href="crowd3.html">Crowdfunding 3</a></button>
+                <button class="botonForm"><a href="crowd2.php">Crowdfunding 2</a></button>
             </div>
         </div>
         <div class="comentarios">
@@ -94,7 +89,7 @@
                         $ultimos[$numUltimos] = $listaComentarios[$i][2];
                         $numUltimos++;
                     }
-                    if(isset($_POST['textoComentario']) && $ultimos[0] != $_POST['textoComentario'])
+                    if(isset($_POST['textoComentario']) && $ultimos[0] != $_POST['textoComentario'] && $_POST['textoComentario'] != "")
                     {
                         $ficheroComentarios = fopen("database/comentarios.csv", "a");
                         $lineaNueva = [$_SESSION['username'], "CrowdfundingLP", $_POST['textoComentario']];
