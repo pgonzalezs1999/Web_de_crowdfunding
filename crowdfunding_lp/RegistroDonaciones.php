@@ -16,7 +16,7 @@
 </head>
 <header>
 <a href="index.php"><img class="logo" src="images/crow3.JPG" alt="Logo PL"><a>
-    <h1>Pantalla de Registro</h1>
+    <h1> Donaciones </h1>
 </header>
 <body>
     <?php
@@ -38,11 +38,7 @@
                     $numLinea++;
                 }
                 fclose($ficheroUsuarios);
-                echo '<p>Gracias'.$arrayLinea[0].'por donar '.$arrayLinea[2].' €</p>';
-            }
-            if ($esCorrector = TRUE){
-                echo '<p>Usuario creado correctamente</p>';
-
+                echo '<p>Gracias por tu donación </p>';
             }
             else
             {

@@ -20,47 +20,62 @@
 </header>
 <body>
     <?php
-        if(isset($_POST['RegistrarUser']))
-        {
-            
+        if($_POST['username']=='' && $_POST['password']==''&& $_POST['repassword']==''){
+            echo ' 
+            <script type="text/javascript">
+            alert("Debes llenar los campos");
+            </script>';
+        }
+        if($_POST['password'] !== $_POST['repassword']){
+            echo ' 
+            <script type="text/javascript">
+            alert("Las contraseñas no coinciden. ");
+            </script>';
+        }
+        /*
+        $Username = $_POST['username'];
+        $Password = $_POST['password'];
+
+        $ficheroUsuarios = fopen("database/usuarios.csv", "r");
+        if ($ficheroUsuarios !== FALSE){
+            while (($arrayLinea = fgetcsv($ficheroUsuarios, 1000, ","))){
+                if($arrayLinea[0] == $Username){
+                    echo'Usuario registrado anteriormente';
+                }
+            }
+            fclose($ficheroUsuarios);
+        }*/
+        else{
             $ficheroComentarios = fopen("database/usuarios.csv", "a");
             $lineaNueva = [$_POST['username'], $_POST['password']];
             fputcsv($ficheroComentarios, $lineaNueva);
             fclose($ficheroComentarios);
-        }
-        if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['repassword'])){
+        
+            if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['repassword'])){
             
-            $Username = $_POST['username'];
-            $Password = $_POST['password'];
-            $RePassword = $_POST['repassword'];
+                $Username = $_POST['username'];
+                $Password = $_POST['password'];
+                $RePassword = $_POST['repassword'];
+                $ficheroUsuarios = fopen("database/usuarios.csv", "r");
 
-            
-            $ficheroUsuarios = fopen("database/usuarios.csv", "r");
-            if ($ficheroUsuarios !== FALSE)
-            {
-                $numLinea = 1;
-                while (($arrayLinea = fgetcsv($ficheroUsuarios, 1000, ",")))
-                {
-                    if($arrayLinea[0] !==$Username && $arrayLinea[1] !== $Password){
+                if ($ficheroUsuarios !== FALSE){   
+                    $numLinea = 1;
+                    while (($arrayLinea = fgetcsv($ficheroUsuarios, 1000, ","))){
                         $numLinea++;
-                        $esCorrector = TRUE;
                     }
+                    fclose($ficheroUsuarios);
+                    echo '<p> Usuario creado correctamente</p>'; 
                 }
-                fclose($ficheroUsuarios);
-                echo '<p>Usuario creado correctamente</p>';
-            }
-            if ($esCorrector = TRUE){
-                echo '<p>Usuario creado correctamente</p>';
-
-            }
-            else
-            {
+                else{
                 echo 'No se ha podido leer el fichero';
+                }
             }
         }
         echo
         '<p class="explicacion">Pulsa el botón para regresar a la pantalla anterior</p><br>
         <button class="botonVolver"><a href="index.php">Regresar</a></button>';
+        
+        
     ?>
 </body>
 <footer id="footer">

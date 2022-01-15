@@ -11,7 +11,7 @@
     <meta proprty="twitter:card" content="summary">
     <meta name="author" content="Pablo Gonzalez y Leticia Gruneiro">
     <title>Crowdfunding La Palma</title>
-    <link rel="stylesheet" href="css/styleCrowd1.css?version=51">
+    <link rel="stylesheet" href="css/styleCrowd1.css"> <!-- ?version=51 -->
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <link href='https://css.gg/chevron-up.css' rel='stylesheet'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,9 +64,26 @@
             <p class="recaudacion"></p>
             <div class="cont">
                 <div class="loader">
-                    <label class="counter"><span class="porcentaje">63%</span> complete</label>
+                    <label class="counter"><span>0%</span> complete</label>
                 </div>
             </div>
+            <?php
+                $ficheroUsuarios = fopen("database/donaciones.csv", "r");
+                if ($ficheroUsuarios !== FALSE){   
+                    while (($arrayLinea = fgetcsv($ficheroUsuarios, 1000, ","))){
+                        $sumDonaciones = array_sum(array_column($arrayLinea, $arrayLinea[2]));
+                        echo '
+                        <div class="cont">
+                            <div class="loader">
+                                <label class="counter"><span><script src="Marq_Msg.js">calcular_Porcentaje()</script>/span> complete</label>
+                            </div>
+                        </div>';
+                    }
+                    fclose($ficheroUsuarios);
+                    echo '<p> Usuario creado correctamente</p>'; 
+                }
+
+            ?>
             <P class="personas_apoyo">42 personas han apoyado esta causa</P>
             
 
@@ -92,70 +109,111 @@
             <img src="images/image3.jpg" alt="Desastre de La Palma">
         </div>
     </div>
-    <div class="comentario_Inicio">
-        <section class="comentarios">
-            <?php
+    <div class="comentarios">
+        <h3>Comentarios de nuestros usuarios:</h3>
+        <?php
             if(isset($_SESSION['username']))
             {
-                echo 
-                '<h3>Dejanos tu comentario:</h3>
-                    <div class="nuevoComentario">
-                        <input type="text" class="comentar" name="textComentario"><br><br>
-                        <input class="botonComentar ratonMano" type="submit" value="Enviar" name="BotonComentario"/>
-                    </div>';
-            }
-            ?>
+                echo'
+                <h3>Déjanos tu comentario:</h3>
+                <form class="nuevoComentario action="index.php" method="post">
+                    <input type="text" class="comentar" name="textoComentario"/>
+                    <button class="botonComentar ratonMano" type="submit">Añadir comentario</button>
+                </form>';
             
-            <h3>Comentarios de nuestros usuarios:</h3>
-
-            <?php
-                $comentarios = fopen("database/comentarios.csv", "r");
-                if ($comentarios !== FALSE)
-                {
-                    $numLinea = 1;
-                    while (($arrayLinea = fgetcsv($comentarios, 1000, ",")) !== FALSE and $numLinea <= 10)
-                    {
-                        echo "<div class=\"comentario\">
-                                <div class=\"columna_foto\">
-                                    <div>
-                                        <img class=\"foto_comentador\" src=\"images/default-profile.jpg\">
-                                    </div>
-                                </div>
-                                <div class=\"columna_comentario\">
-                                    <p><strong>@".$arrayLinea[0]."</strong>, sobre ".$arrayLinea[1]."</p>
-                                    <p>".$arrayLinea[2]."</p>
-                                </div>
-                            </div>";
-                        $numLinea++;               
-                    }
-                    fclose($comentarios);
+            }
+            $comentarios = fopen("database/comentarios.csv", "r");
+            $listaComentarios;
+            if ($comentarios !== FALSE){
+                $numLinea = 1;
+                while (($arrayLinea = fgetcsv($comentarios, 1000, ","))){
+                    $listaComentarios[$numLinea-1] = $arrayLinea;
+                    $numLinea++;
                 }
-            ?>
-        </section>
-        <section class="login" id="login">
-            <h3>Inicia sesión para añadir un comentario</h3>
-            <form action="validarLogin.php" method="post">
-                Usuario: <br><input class="inputForm" type="text" name="username"/>
-                <br>
-                Contraseña: <br><input class="inputForm" type="password" name="password"/>
-                <br><br>
-                <input class="botonForm" type="submit" value="Enviar"/>
-            </form>
-
-            <h3>¿No tienes cuenta? Registrate ahora</h3>
-            <form action="registroUsers.php" method="post">
-                Usuario <br><input class="inputForm" type="text" name="username"/>
-                <br>
-                Contraseña <br><input class="inputForm" type="password" name="password"/>
-                <br><br>
-                Repetir contraseña <br><input class="inputForm" type="password" name="repassword"/>
-                <br><br>
-                <input class="botonForm" type="submit" value="Enviar" name="RegistrarUser"/>
-            </form>
-        </section>
+                fclose($comentarios);
+                $ultimos = [];
+                $numUltimos = 0;
+                for($i=count($listaComentarios)-1; $i>=count($listaComentarios)-10; $i=$i-1){
+                    $ultimos[$numUltimos] = $listaComentarios[$i][2];
+                    $numUltimos++;
+                }
+                if(isset($_POST['textoComentario']) && $ultimos[0] != $_POST['textoComentario']){
+                    $ficheroComentarios = fopen("database/comentarios.csv", "a");
+                    $lineaNueva = [$_SESSION['username'], "LaPalma", $_POST['textoComentario']];
+                    fputcsv($ficheroComentarios, $lineaNueva);
+                    fclose($ficheroComentarios);
+                    unset($_POST);
+                }
+                $comentarios = fopen("database/comentarios.csv", "r");
+                $numLinea = 1;
+                while (($arrayLinea = fgetcsv($comentarios, 1000, ","))){
+                    $listaComentarios[$numLinea-1] = $arrayLinea;
+                    $numLinea++;
+                }
+                fclose($comentarios);
+                for($i=count($listaComentarios)-1; $i>=count($listaComentarios)-10; $i=$i-1){
+                    if($i>=0){
+                        echo '
+                        <div class="comentario">
+                            <div class="columna_foto">
+                                <div>
+                                    <img class="foto_comentador" src="images/default-profile.jpg">
+                                </div>
+                            </div>
+                            <div class="columna_comentario">
+                                <p><strong>@'.$listaComentarios[$i][0].'</strong>, sobre <b>'.$listaComentarios[$i][1].'</b></p>
+                                <p>'.$listaComentarios[$i][2].'</p>
+                            </div>
+                        </div>';                           
+                    }
+                }
+            
+            }
+            
+        ?>   
     </div>
+    <?php
+        if(!isset($_SESSION['username'])){
+            $_SESSION['cerrarSesion'] = FALSE;
+            echo '
+            <div class=sistemaLogin>
+                <div class="login" id="login">
+                    <h3>Inicia sesión para añadir un comentario</h3>
+                    <form action="validarLogin.php" method="post">
+                        Nombre de usuario:<br><input class="inputForm inputUsername" type="text" name="username"/>
+                        <br><br>
+                        Contraseña:<br><input class="inputForm inputPassword" type="password" name="password"/>
+                        <br><br>
+                        <button class="botonForm ratonMano" type="submit">Iniciar sesión</button>
+                    </form>
+                </div>';
+        }
+    ?>
+                <div class ="registro" id="registro">
+                    <h3>¿No tienes cuenta? Registrate ahora</h3>
+                    <form action="registroUsers.php" method="post">
+                        Nombre de usuario: <br><input class="inputForm" type="text" name="username"/>
+                        <br>
+                        Contraseña: <br><input class="inputForm" type="password" name="password"/>
+                        <br><br>
+                        Repetir contraseña: <br><input class="inputForm" type="password" name="repassword"/>
+                        <br><br>
+                        <input class="botonForm ratonMano" type="submit" value="Registrarse" name="RegistrarUser"/>
+                    </form>
+                </div>
+            </div>
+    
+
+  
 </body>
 <footer id="footer">
+    <?php
+    if(isset($_SESSION['username']))
+    {
+        $_SESSION['cerrarSesion'] = TRUE;
+        echo '<p><a href="validarLogin.php">Cerrar sesión</a></p>';
+    }
+    ?>
     <p>Trabajo realizado por:</p>
     <p>Pablo González - Github: <a href="https://github.com/pgonzalezs1999">pgonzalezs1999</a></p>
     <p>Leticia Gruñeiro - Github: <a href="https://github.com/lgruneirodem">lgruneirodem</a></p>

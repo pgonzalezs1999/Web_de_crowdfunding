@@ -4,11 +4,25 @@
     --segundoColor: #def1f8;
 }
 
-.avisoLeti
+/*Nav de sesión*/
+.estadoSesion
 {
-    background-color: red;
-    font-size: 50px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    border-bottom: solid 1px black;
+    background-color: var(--nuestroColor);
 }
+
+.estadoSesion p
+{
+    margin: 0px;
+    margin-left: 10px;
+    padding: 0px;
+}
+
+/*Cambios de los elementos generales*/
 
 body
 {
@@ -299,64 +313,47 @@ h1
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     
 }
-/* Layout del pie de página*/
-footer{
-    background-color: var(--nuestroColor);
-    text-align: center;
-    padding:1%;
-    
-}
-/* Layout de los comentarios*/
-.comentario_Inicio{
-    display: flex;
-    flex-flow: row-reverse;
-    background-color: #efefef;
-    margin-top: 1vh;
-    padding-top: 10px;
-    padding-left: 4vw;
-}
 
+/* Layout de los comentarios*/
 .comentarios
 {
-    flex: 6;
-    width: 80%;
+    background-color: #efefef;
+    margin: 0px;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 10px;
     padding-bottom: 10px;
-    padding-left: 5vw;
-    padding-right: 5vw;
-    margin-bottom: 1vh;
 }
 
 .comentario
 {
+    width: 90%;
     display: flex;
     border: #e6e6e6;
     border-style: solid;
     border-width: 1px;
     background-color: white;
     margin-bottom: 10px;
-    padding-right: 30px;
+    padding-right: 5%;
     border-radius: 10px;
     line-height: 120%;
 }
+.nuevoComentario
+{
+    display: flex;
+    padding-right: 5%;
+    margin-bottom: 30px;
+}
 .comentar{
 
-    border: #e6e6e6;
-    border-style: solid;
-    height: 3vh;
-    width: 20vw;
-    border-width: 1px;
-    background-color: white;
-    margin-bottom: 10px;
-    padding-right: 20px;
-    line-height: 120%;
+    flex: 10;
+    margin-right: 2%;
 }
-.botonComents{
+.botonComentar{
+    flex: 1;
     color: black;
     background-color: var(--nuestroColor);
     text-decoration: none;
-    width: 5vw;
-    height: 30px;
-    margin-bottom: 20px;
 }
 .columna_foto
 {
@@ -375,15 +372,29 @@ footer{
     flex: 10;
 }
 /*Layout de login*/
+.sistemaLogin{
+    display:flex;
+    width: 100%;
+
+}
 .login
 {
-    flex:1;
-    width: 200px;
+    flex:3;
+    text-align: center;
+    padding-left: 7vw;
+
 }
+.registro{
+    text-align: center;
+    flex:3;
+    padding-right: 7vw;
+    width: 40%;
+}
+
 
 .inputForm
 {
-    width: 100%;
+    width: 40%;
 }
 
 .botonForm
@@ -394,6 +405,23 @@ footer{
     width: 40%;
     height: 30px;
     margin-bottom: 25px;
+}
+.botonForm:hover
+{
+    background-color: var(--segundoColor);
+    border: none;
+}
+
+/* Layout del pie de página*/
+footer{
+    margin: 0px;
+    background-color: var(--nuestroColor);
+    text-align: center;
+    padding: 1%;
+}
+footer a
+{
+    text-decoration: none;
 }
 
 .regreso
@@ -409,31 +437,6 @@ footer{
 {
     background-color: white;
     border-width: 1px;
-}
-
-/* Layout de los tipos de titulos y párrafos.*/
-
-h1{
-    text-align: center;
-    margin: auto;
-    font-size: 45px;
-}
-h2
-{
-    width: 55%;
-    margin: auto;
-    text-align: center;
-    font-size: 20px;
-    font-weight: normal;
-}
-h3{
-    /*color: var(--blanco);*/
-    text-decoration:bold
-}
-p{
-    color: rgb(49,48,48);
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font: size 18px;;
 }
 
 @keyframes navHover
@@ -513,6 +516,11 @@ p{
 
 @media only screen and (max-width: 720px)
 {
+    h2
+    {
+        width: 90%;
+        font-weight: normal;
+    }
     .informacion_principal
     {
         display: block;
@@ -526,5 +534,20 @@ p{
     .columnas_informacion
     {
         width:100%;
+    }
+    .comentario
+    {
+        width: 90%;
+        padding-right: 25px;
+        padding-left: 10px;
+        padding-top: 10px;
+    }
+}
+
+@media only screen and (max-width: 420px)
+{
+    .foto_comentador
+    {
+        display: none;
     }
 }
