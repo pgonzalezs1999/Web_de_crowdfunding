@@ -75,7 +75,7 @@
                         echo '
                         <div class="cont">
                             <div class="loader">
-                                <label class="counter"><span><script src="Marq_Msg.js">calcular_Porcentaje()</script>/span> complete</label>
+                                <label class="counter"><span class="porcentaje"><script src="barra.js">calcular_Porcentaje()</script>/span> complete</label>
                             </div>
                         </div>';
                     }
@@ -84,7 +84,7 @@
                 }
 
             ?>
-            <P class="personas_apoyo">42 personas han apoyado esta causa</P>
+            <p class="personas_apoyo"> <span class="Apoyo">42</span> personas han apoyado esta causa</P>
             
 
             <div class="botones">
