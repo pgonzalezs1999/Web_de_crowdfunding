@@ -55,7 +55,7 @@
             if($esCorrecto == TRUE)
             {
                 $_SESSION['username'] = $intentoUsername;
-                echo '<p class="explicacion">Usuario identificando</p>';
+                echo '<p class="explicacion">Usuario identificado</p>';
             }
             else
             {

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
     session_start();
+    $_SESSION['paginaActual'] = "index";
 ?>
 <html lang="es">
     <head>
@@ -23,11 +24,10 @@
             {
                 echo
                 '<div class="estadoSesion">
-                    <p class="textoSesion">Sesión iniciada como: '.$_SESSION['username'].'</p>
+                    <p>Sesión iniciada como: '.$_SESSION['username'].'</p>
                 </div>
                 <br>';
             }
-            $_SESSION['paginaActual'] = "index";
         ?>
         <a href="index.php"><img class="logo" src="images/crow3.JPG" alt="Logo PL"><a>
         <h1>Crowdfundings González-Gruñeiro</h1>

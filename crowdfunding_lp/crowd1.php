@@ -1,7 +1,6 @@
 <?php
     session_start();
-    $_SESSION['paginaActual'] = "crowd1";
-    
+    $_SESSION['paginaActual'] = "crowd1";   
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -26,8 +25,9 @@
             {
                 echo
                 '<div class="estadoSesion">
-                    <p class="textoSesion">Sesión iniciada como: '.$_SESSION['username'].'</p>
-                </div>';
+                    <p>Sesión iniciada como: '.$_SESSION['username'].'</p>
+                </div>
+                <br>';
             }
         ?>
         <div class="logo">
@@ -80,16 +80,13 @@
                         </div>';
                     }
                     fclose($ficheroUsuarios);
-                    echo '<p> Usuario creado correctamente</p>'; 
                 }
 
             ?>
             <P class="personas_apoyo">42 personas han apoyado esta causa</P>
             
-
             <div class="botones">
                 <button class="button"><a id="enlace_donar" href="donacion.php">Donar</a></button>
-                <button class="button">Compartir</button>
             </div>          
             
         </div>
@@ -110,49 +107,56 @@
         </div>
     </div>
     <div class="comentarios">
-        <h3>Comentarios de nuestros usuarios:</h3>
+    <h3>Comentarios de nuestros usuarios:</h3>
         <?php
             if(isset($_SESSION['username']))
             {
-                echo'
+                echo '
                 <h3>Déjanos tu comentario:</h3>
                 <form class="nuevoComentario action="index.php" method="post">
                     <input type="text" class="comentar" name="textoComentario"/>
                     <button class="botonComentar ratonMano" type="submit">Añadir comentario</button>
                 </form>';
-            
             }
             $comentarios = fopen("database/comentarios.csv", "r");
             $listaComentarios;
-            if ($comentarios !== FALSE){
+            if ($comentarios !== FALSE)
+            {
                 $numLinea = 1;
-                while (($arrayLinea = fgetcsv($comentarios, 1000, ","))){
+                while (($arrayLinea = fgetcsv($comentarios, 1000, ",")))
+                {
                     $listaComentarios[$numLinea-1] = $arrayLinea;
                     $numLinea++;
                 }
                 fclose($comentarios);
                 $ultimos = [];
                 $numUltimos = 0;
-                for($i=count($listaComentarios)-1; $i>=count($listaComentarios)-10; $i=$i-1){
+                for($i=count($listaComentarios)-1; $i>=count($listaComentarios)-10; $i=$i-1)
+                {
                     $ultimos[$numUltimos] = $listaComentarios[$i][2];
                     $numUltimos++;
                 }
-                if(isset($_POST['textoComentario']) && $ultimos[0] != $_POST['textoComentario']){
+                if(isset($_POST['textoComentario']) && $ultimos[0] != $_POST['textoComentario'] && $_POST['textoComentario'] != "")
+                {
                     $ficheroComentarios = fopen("database/comentarios.csv", "a");
-                    $lineaNueva = [$_SESSION['username'], "LaPalma", $_POST['textoComentario']];
+                    $lineaNueva = [$_SESSION['username'], "CrowdfundingLP", $_POST['textoComentario']];
                     fputcsv($ficheroComentarios, $lineaNueva);
                     fclose($ficheroComentarios);
                     unset($_POST);
                 }
                 $comentarios = fopen("database/comentarios.csv", "r");
                 $numLinea = 1;
-                while (($arrayLinea = fgetcsv($comentarios, 1000, ","))){
+                while (($arrayLinea = fgetcsv($comentarios, 1000, ",")))
+                {
                     $listaComentarios[$numLinea-1] = $arrayLinea;
                     $numLinea++;
                 }
                 fclose($comentarios);
-                for($i=count($listaComentarios)-1; $i>=count($listaComentarios)-10; $i=$i-1){
-                    if($i>=0){
+                $mostrados = 0;
+                for($i=count($listaComentarios)-1; $i>0; $i--)
+                {
+                    if($i>=0 && $listaComentarios[$i][1] == "LaPalma")
+                    {
                         echo '
                         <div class="comentario">
                             <div class="columna_foto">
@@ -161,15 +165,13 @@
                                 </div>
                             </div>
                             <div class="columna_comentario">
-                                <p><strong>@'.$listaComentarios[$i][0].'</strong>, sobre <b>'.$listaComentarios[$i][1].'</b></p>
+                                <p><strong>@'.$listaComentarios[$i][0].'</strong></b></p>
                                 <p>'.$listaComentarios[$i][2].'</p>
                             </div>
                         </div>';                           
                     }
                 }
-            
             }
-            
         ?>   
     </div>
     <?php
@@ -186,9 +188,7 @@
                         <br><br>
                         <button class="botonForm ratonMano" type="submit">Iniciar sesión</button>
                     </form>
-                </div>';
-        }
-    ?>
+                </div>
                 <div class ="registro" id="registro">
                     <h3>¿No tienes cuenta? Registrate ahora</h3>
                     <form action="registroUsers.php" method="post">
@@ -201,10 +201,10 @@
                         <input class="botonForm ratonMano" type="submit" value="Registrarse" name="RegistrarUser"/>
                     </form>
                 </div>
-            </div>
-    
-
-  
+            </div>';
+        }
+    ?>
+     
 </body>
 <footer id="footer">
     <?php
