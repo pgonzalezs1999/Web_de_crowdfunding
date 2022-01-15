@@ -1,7 +1,6 @@
 <?php
     session_start();
-    $_SESSION['paginaActual'] = "crowd2";
-    
+    $_SESSION['paginaActual'] = "crowd2"; 
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -26,8 +25,9 @@
             {
                 echo
                 '<div class="estadoSesion">
-                    <p class="textoSesion">Sesión iniciada como: '.$_SESSION['username'].'</p>
-                </div>';
+                    <p>Sesión iniciada como: '.$_SESSION['username'].'</p>
+                </div>
+                <br>';
             }
         ?>
         <div class="logo">
@@ -72,7 +72,6 @@
 
             <div class="botones">
                 <button class="button"><a id="enlace_donar" href="donacion.php">Donar</a></button>
-                <button class="button">Compartir</button>
             </div>          
             
         </div>
