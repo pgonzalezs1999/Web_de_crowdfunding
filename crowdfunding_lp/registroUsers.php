@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+    session_start();
+?>
 <html lang="es">
 <head>
     <!-- http://localhost/Pablo/crowdfunding_lp/crowdfunding_lp/validarLogin.php -->
@@ -73,7 +76,7 @@
         }
         echo
         '<p class="explicacion">Pulsa el botón para regresar a la pantalla anterior</p><br>
-        <button class="botonVolver"><a href="index.php">Regresar</a></button>';
+        <button class="botonVolver"><a href='.$_SESSION['paginaActual'].'>Regresar</a></button>';
         
         
     ?>

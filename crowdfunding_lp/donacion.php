@@ -1,4 +1,13 @@
 <!DOCTYPE html>
+    <?php
+    session_start();
+    if (isset($_SESSION['username'])== FALSE){
+        echo'<script type="text/javascript">
+        alert("Debes iniciar sesión para poder donar");
+        </script>';
+        header("Location: index.php");
+    }
+    ?>
 <html>
 <head>
     <title>Crowdfundings Leticia y Pablo</title>
@@ -8,18 +17,16 @@
     <meta charset="UTF-8">
 </head>
 <header>
-    <a href="index.html"><img class="logo" src="images/crow3.JPG" alt="Desastre de la palma"></a>
+    <a href="index.php"><img class="logo" src="images/crow3.JPG" alt="Desastre de la palma"></a>
     <h1>Realizar donación</h1>
 </header>
 <body>
     <div class="contenedorFormulario">
-        <h2>Gracias por apoyar [nombre del proyecto]</h2>
+        <h2>Gracias por apoyar esta causa</h2>
         <div class="columnasFormulario">
             <div class="columnaFormulario">
                 <h3>Rellena el formulario para completar la ayuda</h3>
                 <form name ="FormularioDonacion" action="RegistroDonaciones.php" method="post">
-                Escribe tu nombre de usuario:<br><br><input type="text" name="username"/>
-                <br><br>
                 Escribe la cantidad para donar:<br><br><input class="inputDinero" type="text" name="Dinero"/>
                 <br><br>
                 <input class="botonForm" type="submit" value="Enviar" name="botonDonacion"/>

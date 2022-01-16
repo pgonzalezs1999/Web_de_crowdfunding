@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $_SESSION['paginaActual'] = "crowd1";   
+    $_SESSION['paginaActual'] = "crowd1.php";   
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -18,24 +18,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
-<body>
-    <header>
-        <?php
-            if(isset($_SESSION['username']))
-            {
-                echo
-                '<div class="estadoSesion">
-                    <p>Sesión iniciada como: '.$_SESSION['username'].'</p>
-                </div>
-                <br>';
-            }
-        ?>
-        <div class="logo">
-            <a href="index.php"><img src="images/crow3.JPG" alt="logo"></a>
-        </div>
+<header>
+    <?php
+        if(isset($_SESSION['username']))
+        {
+            echo
+            '<div class="estadoSesion">
+                <p>Sesión iniciada como: '.$_SESSION['username'].'</p>
+            </div>
+            <br>';
+        }
+    ?>
+    <div class="logo">
+        <a href="index.php"><img src="images/crow3.JPG" alt="logo"></a>
+    </div>
+    <div class="texto_header">
         <h1>Recaudación de fondos para La Palma </h1>
         <h2>Después de este de la explosión, quisimos aportar nuestro pequeño grano de arena para porder ayudar a la gente que se ha quedado sin casa. </h2>
-    </header> 
+    </div>
+</header> 
+<body>
+    
         <nav class="navPrincipal">
             <ul>
                 <?php
@@ -67,26 +70,31 @@
                     <label class="counter"><span>0%</span> complete</label>
                 </div>
             </div>
-            <?php
+            <?php /*
+                $total= 5000;
+                $sumDonaciones=0;
                 $ficheroUsuarios = fopen("database/donaciones.csv", "r");
                 if ($ficheroUsuarios !== FALSE){   
                     while (($arrayLinea = fgetcsv($ficheroUsuarios, 1000, ","))){
-                        $sumDonaciones = array_sum(array_column($arrayLinea, $arrayLinea[2]));
+                        $sumDonaciones += $arrayLinea[2];
+                        if ($sumDonaciones !== 0){
+                            $porcentajeTotal = ($sumDonaciones * $total)/100;
+                        }
                         echo '
                         <div class="cont">
                             <div class="loader">
-                                <label class="counter"><span class="porcentaje"><script src="barra.js">calcular_Porcentaje()</script>/span> complete</label>
+                                <label class="counter"><span class="porcentaje">'. $porcentajeTotal.'%</span> complete</label>
                             </div>
                         </div>';
                     }
                     fclose($ficheroUsuarios);
                 }
-
+                */
             ?>
             <p class="personas_apoyo"> <span class="Apoyo">42</span> personas han apoyado esta causa</P>
             
             <div class="botones">
-                <button class="button"><a id="enlace_donar" href="donacion.php">Donar</a></button>
+                <button class="button" name="enlaceDonacion"><a id="enlace_donar" href="donacion.php">Donar</a></button>
             </div>          
             
         </div>

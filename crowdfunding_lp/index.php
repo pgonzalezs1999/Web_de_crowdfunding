@@ -11,7 +11,7 @@
         <meta proprty="twitter:card" content="summary">
         <meta name="author" content="Pablo Gonzalez y Leticia Gruneiro">
         <title>Crowdfundings Leticia y Pablo</title>
-        <link rel="stylesheet" href="css/styleIndex.css?version=52">
+        <link rel="stylesheet" href="css/styleIndex.css"><!-- ?version=52 -->
         <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
         <link href='https://css.gg/chevron-up.css' rel='stylesheet'>
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -131,23 +131,29 @@
             {
                 $_SESSION['cerrarSesion'] = FALSE;
                 echo '
-                <div class="login" id="login">
-                    <h3>Inicia sesión para añadir un comentario</h3>
-                    <form action="validarLogin.php" method="post">
-                        Nombre de usuario:<br><input class="inputForm inputUsername" type="text" name="username"/>
-                        <br><br>
-                        Contraseña:<br><input class="inputForm inputPassword" type="text" name="password"/>
-                        <br><br>
-                        <button class="botonForm ratonMano" type="submit">Iniciar sesión</button>
-                    </form>
-                    <!-- <h3>¿No tienes cuenta? Registrate ahora</h3>
-                    <form action="index.php" method="post">
-                        Usuario: <br><input class="inputForm" type="text" name="nombre"/>
-                        <br>
-                        Contraseña: <br><input class="inputForm" type="text" name="contrasena"/>
-                        <br><br>
-                        <input class="botonForm ratonMano" type="submit" value="Registrarse"/>
-                    </form> -->
+                <div class=sistemaLogin>
+                    <div class="login" id="login">
+                        <h3>Inicia sesión para añadir un comentario</h3>
+                        <form action="validarLogin.php" method="post">
+                            Nombre de usuario:<br><input class="inputForm inputUsername" type="text" name="username"/>
+                            <br><br>
+                            Contraseña:<br><input class="inputForm inputPassword" type="password" name="password"/>
+                            <br><br>
+                            <button class="botonForm ratonMano" type="submit">Iniciar sesión</button>
+                        </form>
+                    </div>
+                    <div class ="registro" id="registro">
+                        <h3>¿No tienes cuenta? Registrate ahora</h3>
+                        <form action="registroUsers.php" method="post">
+                            Nombre de usuario: <br><input class="inputForm" type="text" name="username"/>
+                            <br>
+                            Contraseña: <br><input class="inputForm" type="password" name="password"/>
+                            <br><br>
+                            Repetir contraseña: <br><input class="inputForm" type="password" name="repassword"/>
+                            <br><br>
+                            <input class="botonForm ratonMano" type="submit" value="Registrarse" name="RegistrarUser"/>
+                        </form>
+                    </div>
                 </div>';
             }
         ?>

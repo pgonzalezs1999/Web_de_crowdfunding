@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+    session_start();
+?>
 <html lang="es">
 <head>
     <!-- http://localhost/Pablo/crowdfunding_lp/crowdfunding_lp/validarLogin.php -->
@@ -6,7 +9,7 @@
     <link rel="icon" href="images/icono.jpg">
     <meta proprty="twitter:card" content="summary">
     <meta name="author" content="Pablo Gonzalez y Leticia Gruneiro">
-    <title>Registro PL</title>
+    <title>Donaciones PL</title>
     <link rel="stylesheet" href="css/styleLogIn.css?version=51">
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <link href='https://css.gg/chevron-up.css' rel='stylesheet'>
@@ -20,15 +23,11 @@
 </header>
 <body>
     <?php
-        if(isset($_POST['botonDonacion']))
-        {
-            
-            $ficheroComentarios = fopen("database/donaciones.csv", "a");
-            $lineaNueva = [$_POST['username'],"LaPalma", $_POST['Dinero']];
-            fputcsv($ficheroComentarios, $lineaNueva);
-            fclose($ficheroComentarios);
-        }
-        
+        $ficheroComentarios = fopen("database/donaciones.csv", "a");
+        $lineaNueva = [$_SESSION['username'],"LaPalma", $_POST['Dinero']];
+        fputcsv($ficheroComentarios, $lineaNueva);
+        fclose($ficheroComentarios);
+     
         $ficheroUsuarios = fopen("database/donaciones.csv", "r");
         if ($ficheroUsuarios !== FALSE)
             {
@@ -47,7 +46,7 @@
         
         echo
         '<p class="explicacion">Pulsa el botón para regresar a la pantalla anterior</p><br>
-        <button class="botonVolver"><a href="index.php">Regresar</a></button>';
+         <button class="botonVolver"><a href='.$_SESSION['paginaActual'].'>Regresar</a></button>';
     ?>
 </body>
 <footer id="footer">

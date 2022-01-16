@@ -219,10 +219,23 @@ h2
 {
     flex: 10;
 }
+.sistemaLogin{
+    display:flex;
+    width: 100%;
 
+}
 .login
 {
+    flex:3;
     text-align: center;
+    padding-left: 7vw;
+}
+
+.registro{
+    text-align: center;
+    flex:3;
+    padding-right: 7vw;
+    width: 40%;
 }
 
 .inputForm
