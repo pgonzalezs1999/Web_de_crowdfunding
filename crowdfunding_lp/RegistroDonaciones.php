@@ -24,7 +24,14 @@
 <body>
     <?php
         $ficheroComentarios = fopen("database/donaciones.csv", "a");
-        $lineaNueva = [$_SESSION['username'],"LaPalma", $_POST['Dinero']];
+        if($_SESSION['paginaActual'] == "crowd1.php")
+        {
+            $lineaNueva = [$_SESSION['username'],"LaPalma", $_POST['Dinero']];
+        }
+        else if($_SESSION['paginaActual'] == "crowd2.php")
+        {
+            $lineaNueva = [$_SESSION['username'],"Bohol", $_POST['Dinero']];
+        }
         fputcsv($ficheroComentarios, $lineaNueva);
         fclose($ficheroComentarios);
      

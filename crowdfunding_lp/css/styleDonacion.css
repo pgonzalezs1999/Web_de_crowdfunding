@@ -74,7 +74,7 @@ h1
     margin-bottom: 1vh;
 }
 
-button
+.botonForm
 {
     text-decoration: none;
     color: black;
@@ -86,7 +86,10 @@ button
 
 footer
 {
-    margin: 0px;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
     background-color: var(--nuestroColor);
     text-align: center;
     padding-top: 1vh;

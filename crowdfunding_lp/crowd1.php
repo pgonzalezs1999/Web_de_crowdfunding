@@ -10,7 +10,7 @@
     <meta proprty="twitter:card" content="summary">
     <meta name="author" content="Pablo Gonzalez y Leticia Gruneiro">
     <title>Crowdfunding La Palma</title>
-    <link rel="stylesheet" href="css/styleCrowd1.css"> <!-- ?version=51 -->
+    <link rel="stylesheet" href="css/styleCrowd1.css?version=51"> <!-- ?version=51 -->
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <link href='https://css.gg/chevron-up.css' rel='stylesheet'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,14 +33,14 @@
         <a href="index.php"><img src="images/crow3.JPG" alt="logo"></a>
     </div>
     <div class="texto_header">
-        <h1>Recaudación de fondos para La Palma </h1>
-        <h2>Después de este de la explosión, quisimos aportar nuestro pequeño grano de arena para porder ayudar a la gente que se ha quedado sin casa. </h2>
+        <h1>Recaudación de fondos para La Palma</h1>
+        <h2>Después de este de la explosión, quisimos aportar nuestro pequeño grano de arena para porder ayudar a la gente que se ha quedado sin casa.</h2>
     </div>
 </header> 
-<body>
-    
+<body>   
         <nav class="navPrincipal">
             <ul>
+                <li class="ratonMano"><a href="index.php">Página principal</a></li>
                 <?php
                     if(!isset($_SESSION['username']))
                     {
@@ -73,25 +73,31 @@
             </div> -->
             <?php 
                 $total= 5000;
+                $numPersonas=0;
                 $sumDonaciones=0;
+                $porcentajeTotal=0;
                 $ficheroUsuarios = fopen("database/donaciones.csv", "r");
-                if ($ficheroUsuarios !== FALSE){   
-                    while (($arrayLinea = fgetcsv($ficheroUsuarios, 1000, ","))){
-                        $sumDonaciones += $arrayLinea[2];
-                        $porcentajeTotal = ($sumDonaciones * 100)/$total;
+                if ($ficheroUsuarios !== FALSE)
+                {   
+                    while (($arrayLinea = fgetcsv($ficheroUsuarios, 1000, ",")))
+                    {
+                        if($arrayLinea[1] == "LaPalma")
+                        {
+                            $numPersonas++;
+                            $sumDonaciones += $arrayLinea[2];
+                            $porcentajeTotal = $sumDonaciones/$total*100;
+                        }
                     }
                     fclose($ficheroUsuarios);
                     echo '
                         <div class="cont">
                             <div class="loader" style="width:'.$porcentajeTotal.'%">
-                                <label class="counter"><span class="porcentaje">'. $porcentajeTotal.'%</span> complete</label>
+                                <label class="counter">'.$porcentajeTotal.'%</label>
                             </div>
-                        </div>';
-                    
-                }
-                
+                        </div>
+                        <p class="personas_apoyo"> <span class="Apoyo">'.$numPersonas.'</span> donaciones a esta causa</p>';
+                }               
             ?>
-            <p class="personas_apoyo"> <span class="Apoyo">42</span> personas han apoyado esta causa</P>
             
             <div class="botones">
                 <?php
@@ -153,7 +159,7 @@
                 if(isset($_POST['textoComentario']) && $ultimos[0] != $_POST['textoComentario'] && $_POST['textoComentario'] != "")
                 {
                     $ficheroComentarios = fopen("database/comentarios.csv", "a");
-                    $lineaNueva = [$_SESSION['username'], "CrowdfundingLP", $_POST['textoComentario']];
+                    $lineaNueva = [$_SESSION['username'], "LaPalma", $_POST['textoComentario']];
                     fputcsv($ficheroComentarios, $lineaNueva);
                     fclose($ficheroComentarios);
                     unset($_POST);

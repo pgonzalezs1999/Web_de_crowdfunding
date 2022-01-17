@@ -11,7 +11,7 @@
 <html>
 <head>
     <title>Crowdfundings Leticia y Pablo</title>
-    <link rel="stylesheet" href="css/styleDonacion.css">
+    <link rel="stylesheet" href="css/styleDonacion.css?version=51">
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <link href='https://css.gg/chevron-up.css' rel='stylesheet'>
     <meta charset="UTF-8">
@@ -22,7 +22,16 @@
 </header>
 <body>
     <div class="contenedorFormulario">
-        <h2>Gracias por apoyar esta causa</h2>
+    <?php
+        if($_SESSION['paginaActual'] == "crowd1.php")
+        {
+            echo '<h2>Gracias por apoyar a La Palma</h2>';
+        }
+        else if($_SESSION['paginaActual'] == "crowd2.php")
+        {
+            echo '<h2>Gracias por apoyar a Bohol</h2>';
+        }
+    ?>
         <div class="columnasFormulario">
             <div class="columnaFormulario">
                 <h3>Rellena el formulario para completar la ayuda</h3>
@@ -31,14 +40,6 @@
                 <br><br>
                 <input class="botonForm" type="submit" value="Enviar" name="botonDonacion"/>
             </form>
-            </div>
-            <div class="lineaVertical"></div>
-            <div class="botonesCantidad">
-                <h3>Elegir una cantidad</h3>
-                <button class="botonCantidad" onclick="anadirDinero(1)">1€</button>
-                <button class="botonCantidad" onclick="anadirDinero(5)">5€</button>
-                <button class="botonCantidad" onclick="anadirDinero(10)">10€</button>
-                <button class="botonCantidad" onclick="anadirDinero(20)">20€</button>
             </div>
         </div>
     </div>
