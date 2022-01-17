@@ -36,42 +36,33 @@
             </script>';
         }
         
-        $Username = $_POST['username'];
-        $Password = $_POST['password'];
-
-        $ficheroUsuarios = fopen("database/usuarios.csv", "r");
-        if ($ficheroUsuarios !== FALSE){
-            while (($arrayLinea = fgetcsv($ficheroUsuarios, 1000, ","))){
-                if($arrayLinea[0] == $Username){
-                    echo'Usuario registrado anteriormente';
-                }
-            }
-            fclose($ficheroUsuarios);
-        }
-        else{
-            $ficheroComentarios = fopen("database/usuarios.csv", "a");
-            $lineaNueva = [$_POST['username'], $_POST['password']];
-            fputcsv($ficheroComentarios, $lineaNueva);
-            fclose($ficheroComentarios);
+        $esIgual=FALSE;
+        $ficheroComentarios = fopen("database/usuarios.csv", "a");
+        $lineaNueva = [$_POST['username'], $_POST['password']];
+        fputcsv($ficheroComentarios, $lineaNueva);
+        fclose($ficheroComentarios);
         
-            if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['repassword'])){
+        if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['repassword'])){
             
-                $Username = $_POST['username'];
-                $Password = $_POST['password'];
-                $RePassword = $_POST['repassword'];
-                $ficheroUsuarios = fopen("database/usuarios.csv", "r");
+            $Username = $_POST['username'];
+            $Password = $_POST['password'];
+            $RePassword = $_POST['repassword'];
+            $ficheroUsuarios = fopen("database/usuarios.csv", "r");
 
-                if ($ficheroUsuarios !== FALSE){   
-                    $numLinea = 1;
-                    while (($arrayLinea = fgetcsv($ficheroUsuarios, 1000, ","))){
-                        $numLinea++;
-                    }
-                    fclose($ficheroUsuarios);
-                    echo '<p> Usuario creado correctamente</p>'; 
+            if ($ficheroUsuarios !== FALSE){   
+                $numLinea = 1;
+                while (($arrayLinea = fgetcsv($ficheroUsuarios, 1000, ","))){
+
+                    /*if($arrayLinea[0]== $Username){
+                    $esIgual=TRUE;
+                    }else{*/
+                    $numLinea++;
                 }
-                else{
+                fclose($ficheroUsuarios);
+                echo '<p> Usuario creado correctamente</p>'; 
+            }
+            else{
                 echo 'No se ha podido leer el fichero';
-                }
             }
         }
         echo
