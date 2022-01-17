@@ -65,31 +65,31 @@
                 Por esto, hemos visto como una necesidad humana hacer una recaudación de fondos a tráves de un crowfounding para ayudar a estos ciudadanos</p>
 
             <p class="recaudacion"></p>
+            <!--
             <div class="cont">
                 <div class="loader">
                     <label class="counter"><span>0%</span> complete</label>
                 </div>
-            </div>
-            <?php /*
+            </div> -->
+            <?php 
                 $total= 5000;
                 $sumDonaciones=0;
                 $ficheroUsuarios = fopen("database/donaciones.csv", "r");
                 if ($ficheroUsuarios !== FALSE){   
                     while (($arrayLinea = fgetcsv($ficheroUsuarios, 1000, ","))){
                         $sumDonaciones += $arrayLinea[2];
-                        if ($sumDonaciones !== 0){
-                            $porcentajeTotal = ($sumDonaciones * $total)/100;
-                        }
-                        echo '
+                        $porcentajeTotal = ($sumDonaciones * 100)/$total;
+                    }
+                    fclose($ficheroUsuarios);
+                    echo '
                         <div class="cont">
-                            <div class="loader">
+                            <div class="loader" style="width:'.$porcentajeTotal.'%">
                                 <label class="counter"><span class="porcentaje">'. $porcentajeTotal.'%</span> complete</label>
                             </div>
                         </div>';
-                    }
-                    fclose($ficheroUsuarios);
+                    
                 }
-                */
+                
             ?>
             <p class="personas_apoyo"> <span class="Apoyo">42</span> personas han apoyado esta causa</P>
             
@@ -228,5 +228,4 @@
     <button class="regreso ratonMano"><i class="gg-chevron-up" onclick="regresar()"></i></button>
 </footer>
 <script src="js/principal.js"></script>
-<script src="js/crowd1.js"></script>
 </html>

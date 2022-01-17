@@ -10,16 +10,6 @@ window.addEventListener("load", loadProgress)
     const counter = target.querySelector("span");
 
     // Sample form data
-    const details = {
-        name: "Jefferson",
-        age: 12,
-        weight: 70,
-        level: 30,
-        relationship: "",
-        contact: "",
-        email: "",
-     friends: 459
-    }
 
 
     function getProgress(board){
@@ -40,7 +30,7 @@ window.addEventListener("load", loadProgress)
     }
 
     // Utilise value calculated from loader
-    function implimentLoad(){
+    function implimentLoad(details){
         // Simulate a delay
         setTimeout(()=>{
             let progress = Math.round(getProgress(details))
@@ -49,5 +39,5 @@ window.addEventListener("load", loadProgress)
         }, 1000)
 
     }
-    implimentLoad()
+    //implimentLoad()
   }
