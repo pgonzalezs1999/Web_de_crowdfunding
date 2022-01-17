@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
     session_start();
-    $_SESSION['paginaActual'] = "index";
+    $_SESSION['paginaActual'] = "index.php";
 ?>
 <html lang="es">
     <head>

@@ -69,11 +69,11 @@
 
         echo '<p class="explicacion">Pulsa el botón para regresar a la pantalla anterior</p><br>';
 
-        if($_SESSION['paginaActual']=="crowd1")
+        if($_SESSION['paginaActual']=="crowd1.php")
         {
             echo '<button class="botonVolver"><a href=crowd1.php>Regresar</a></button>';
         }
-        else if($_SESSION['paginaActual']=="crowd2")
+        else if($_SESSION['paginaActual']=="crowd2.php")
         {
             echo '<button class="botonVolver"><a href=crowd2.php>Regresar</a></button>';
         }

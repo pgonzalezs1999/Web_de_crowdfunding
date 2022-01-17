@@ -47,7 +47,7 @@
                         echo '<li class="ratonMano"><a href="#login">Iniciar sesión</a></li>';
                     }
                 ?>
-                <li class="ratonMano"><a href="#Contacto">Contacto</a></li>
+                <li class="ratonMano"><a href="#footer">Contacto</a></li>
             </ul>
         </nav>
       
@@ -94,7 +94,13 @@
             <p class="personas_apoyo"> <span class="Apoyo">42</span> personas han apoyado esta causa</P>
             
             <div class="botones">
-                <button class="button" name="enlaceDonacion"><a id="enlace_donar" href="donacion.php">Donar</a></button>
+                <?php
+                if(!isset($_SESSION['username'])){
+                    echo'<button class="button" name="enlaceDonacion"><a id="enlace_donar" href=#login >Donar</a></button>';
+                }else{
+                    echo'<button class="button" name="enlaceDonacion"><a id="enlace_donar" href="donacion.php" >Donar</a></button>';
+                }
+                ?>
             </div>          
             
         </div>

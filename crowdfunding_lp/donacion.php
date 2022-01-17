@@ -1,11 +1,11 @@
 <!DOCTYPE html>
     <?php
     session_start();
-    if (isset($_SESSION['username'])== FALSE){
+    if (!isset($_SESSION['username'])){
         echo'<script type="text/javascript">
         alert("Debes iniciar sesión para poder donar");
         </script>';
-        header("Location: index.php");
+        //header("Location: index.php");
     }
     ?>
 <html>
