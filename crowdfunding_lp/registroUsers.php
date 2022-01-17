@@ -35,7 +35,7 @@
             alert("Las contraseñas no coinciden. ");
             </script>';
         }
-        /*
+        
         $Username = $_POST['username'];
         $Password = $_POST['password'];
 
@@ -47,7 +47,7 @@
                 }
             }
             fclose($ficheroUsuarios);
-        }*/
+        }
         else{
             $ficheroComentarios = fopen("database/usuarios.csv", "a");
             $lineaNueva = [$_POST['username'], $_POST['password']];
