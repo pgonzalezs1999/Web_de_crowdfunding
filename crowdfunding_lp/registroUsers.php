@@ -51,7 +51,7 @@
                 fclose($ficheroUsuarios);
             }
             if($esIgual== TRUE){
-                echo '<p> Este usuario ya esta creado</p>';
+                echo '<p> Este usuario ha sido creado anteriormente</p>';
             }
             else{
                 $ficheroComentarios = fopen("database/usuarios.csv", "a");
