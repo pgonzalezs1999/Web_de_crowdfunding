@@ -35,15 +35,9 @@
             alert("Las contraseñas no coinciden. ");
             </script>';
         }
-        
-        $esIgual=FALSE;
-        $ficheroComentarios = fopen("database/usuarios.csv", "a");
-        $lineaNueva = [$_POST['username'], $_POST['password']];
-        fputcsv($ficheroComentarios, $lineaNueva);
-        fclose($ficheroComentarios);
-        
         if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['repassword'])){
             
+            $esIgual=FALSE;
             $Username = $_POST['username'];
             $Password = $_POST['password'];
             $RePassword = $_POST['repassword'];
@@ -52,22 +46,41 @@
             if ($ficheroUsuarios !== FALSE){   
                 $numLinea = 1;
                 while (($arrayLinea = fgetcsv($ficheroUsuarios, 1000, ","))){
-
-                    /*if($arrayLinea[0]== $Username){
-                    $esIgual=TRUE;
-                    }else{*/
-                    $numLinea++;
+                    
+                    if($Username==$arrayLinea[0]){
+                        $esIgual =TRUE;
+                    }
+                    
                 }
                 fclose($ficheroUsuarios);
-                echo '<p> Usuario creado correctamente</p>'; 
+            }
+            if($esIgual== TRUE){
+                echo '<p> Este usuario ya esta creado</p>';
             }
             else{
-                echo 'No se ha podido leer el fichero';
+                $ficheroComentarios = fopen("database/usuarios.csv", "a");
+                $lineaNueva = [$_POST['username'], $_POST['password']];
+                fputcsv($ficheroComentarios, $lineaNueva);
+                fclose($ficheroComentarios);
+
+                $ficheroUsuarios = fopen("database/usuarios.csv", "r");
+                if ($ficheroUsuarios !== FALSE){   
+                    $numLinea = 1;
+                    while (($arrayLinea = fgetcsv($ficheroUsuarios, 1000, ","))){
+                        $numLinea++;
+                    }
+                    fclose($ficheroUsuarios);
+                    echo '<p> Usuario creado correctamente</p>'; 
+                }else{
+                    echo 'No se ha podido leer el fichero';
+                }
             }
+        
         }
         echo
         '<p class="explicacion">Pulsa el botón para regresar a la pantalla anterior</p><br>
         <button class="botonVolver"><a href='.$_SESSION['paginaActual'].'>Regresar</a></button>';
+        
         
         
     ?>
