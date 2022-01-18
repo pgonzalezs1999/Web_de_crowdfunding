@@ -28,7 +28,10 @@
         {
             session_destroy();
             echo '<p class="explicacion">Sesión cerrada correctamente<br></p>';
+        }else if($_POST['username']=='' && $_POST['password']==''){
+            echo '<p> Debes llenar los campos<br></p>';
         }
+
         else if(isset($_POST['username']) && isset($_POST['password']))
         {
             $intentoUsername = $_POST['username'];

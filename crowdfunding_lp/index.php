@@ -56,7 +56,7 @@
             <div class="proyecto">
                 <img src="images/Filipinas_desastre.jpg">
                 <p>El 19 de diciembre de 2021, el supertifón Rai arrasó por Bohol, Filipinas, destrozando gran parte de la ciudad</p>
-                <button class="botonForm"><a href="crowd2.php">Crowdfunding 2</a></button>
+                <button class="botonForm"><a href="crowd2.php">Bohol</a></button>
             </div>
         </div>
         <div class="comentarios">

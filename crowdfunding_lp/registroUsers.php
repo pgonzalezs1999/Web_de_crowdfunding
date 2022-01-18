@@ -25,17 +25,13 @@
     <?php
         if($_POST['username']=='' && $_POST['password']==''&& $_POST['repassword']==''){
             echo ' 
-            <script type="text/javascript">
-            alert("Debes llenar los campos");
-            </script>';
+            <p> Debes llenar los campos</p>';
         }
-        if($_POST['password'] !== $_POST['repassword']){
+        elseif($_POST['password'] !== $_POST['repassword']){
             echo ' 
-            <script type="text/javascript">
-            alert("Las contraseñas no coinciden. ");
-            </script>';
+            <p> Las contraseñas no coinciden</p>';
         }
-        if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['repassword'])){
+        elseif(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['repassword'])){
             
             $esIgual=FALSE;
             $Username = $_POST['username'];
